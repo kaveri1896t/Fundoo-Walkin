@@ -113,7 +113,21 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\FundooIcon.png" />
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup />
+=======
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\DashboardPage.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\CalendarIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\LocationIcon.png" />
+  </ItemGroup>
+>>>>>>> 6523632f070c61bb9bb50ae2958434c8a5e14d6f
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
     Other similar extension points exist, see Microsoft.Common.targets.

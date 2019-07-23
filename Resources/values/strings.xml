@@ -1,4 +1,9 @@
 <resources>
-    <string name="app_name">FundooWalkin</string>
-    <string name="action_settings">Settings</string>
+  <string name="app_name">FundooWalkin</string>
+  <string name="action_settings">Settings</string>
+  <string-array name="LocationArray">
+    <item>BL-Mumbai</item>
+    <item>BL-Banglore</item>
+    <item>BL-Chennai</item>
+  </string-array>
 </resources>

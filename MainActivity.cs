@@ -5,19 +5,25 @@ using Android.Runtime;
 using FundooWalkin.helper;
 using Android.Widget;
 using System;
+<<<<<<< HEAD
 using System.Text.RegularExpressions;
+=======
+>>>>>>> 6523632f070c61bb9bb50ae2958434c8a5e14d6f
 
 namespace FundooWalkin
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
+        
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.LoginPage);
+<<<<<<< HEAD
             EditText username = FindViewById<EditText>(Resource.Id.name);
             EditText password = FindViewById<EditText>(Resource.Id.password);
             Button LoginBtn = FindViewById<Button>(Resource.Id.Loginbtn);
@@ -58,6 +64,11 @@ namespace FundooWalkin
 
             };
         }
+=======
+         
+         }
+
+>>>>>>> 6523632f070c61bb9bb50ae2958434c8a5e14d6f
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
