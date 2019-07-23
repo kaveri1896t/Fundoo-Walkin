@@ -3272,9 +3272,22 @@ namespace FundooWalkin
 			// aapt resource value: 0x7f0a003b
 			public const int FUNCTION = 2131361851;
 			
+<<<<<<< HEAD
 			// aapt resource value: 0x7f0a00b1
 			public const int Loginbtn = 2131361969;
 			
+=======
+<<<<<<< HEAD
+			// aapt resource value: 0x7f0a00b1
+			public const int Loginbtn = 2131361969;
+			
+=======
+
+			// aapt resource value: 0x7f0a00af
+			public const int Loginbtn = 2131361967;
+
+>>>>>>> 6523632f070c61bb9bb50ae2958434c8a5e14d6f
+>>>>>>> 049db04890ea876a7664a3717c47d7a377489ae3
 			// aapt resource value: 0x7f0a003c
 			public const int META = 2131361852;
 			
@@ -3569,8 +3582,17 @@ namespace FundooWalkin
 			// aapt resource value: 0x7f0a00b0
 			public const int myimg = 2131361968;
 			
+<<<<<<< HEAD
 			// aapt resource value: 0x7f0a00aa
 			public const int navigation_header_container = 2131361962;
+=======
+			// aapt resource value: 0x7f0a00af
+			public const int name = 2131361967;
+			
+			// aapt resource value: 0x7f0a00a8
+			public const int navigation_header_container = 2131361960;
+
+>>>>>>> 049db04890ea876a7664a3717c47d7a377489ae3
 			
 			// aapt resource value: 0x7f0a0042
 			public const int never = 2131361858;
@@ -3601,6 +3623,9 @@ namespace FundooWalkin
 			
 			// aapt resource value: 0x7f0a000b
 			public const int parent_matrix = 2131361803;
+			
+			// aapt resource value: 0x7f0a00b0
+			public const int password = 2131361968;
 			
 			// aapt resource value: 0x7f0a0058
 			public const int pin = 2131361880;

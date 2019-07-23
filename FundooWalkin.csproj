@@ -59,7 +59,11 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="DashboardActivity.cs" />
+=======
+    <Compile Include="helper\Helper.cs" />
+>>>>>>> 049db04890ea876a7664a3717c47d7a377489ae3
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,6 +100,12 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.Net.Http">
+      <Version>2.2.29</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.2</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.1" />
     <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.1" />
     <PackageReference Include="Xamarin.Android.Support.CustomTabs" Version="28.0.0.1" />
@@ -107,6 +117,9 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\FundooIcon.png" />
   </ItemGroup>
+<<<<<<< HEAD
+  <ItemGroup />
+=======
   <ItemGroup>
     <AndroidResource Include="Resources\layout\DashboardPage.axml">
       <SubType>Designer</SubType>
@@ -118,6 +131,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\LocationIcon.png" />
   </ItemGroup>
+>>>>>>> 6523632f070c61bb9bb50ae2958434c8a5e14d6f
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
     Other similar extension points exist, see Microsoft.Common.targets.
