@@ -27,10 +27,11 @@ namespace FundooWalkin
         }
         private void DateSelect_OnClick(object sender, EventArgs e)
         {
-            DatePickerFragment frag = DatePickerFragment.NewInstance(delegate (DateTime time)
+            DatePickerFragment frag = DatePickerFragment.NewInstance(delegate (DateTime date)
             {
-                _dateSelectButton.Text = time.ToShortDateString();
+                _dateSelectButton.Text = date.ToShortDateString();
             });
+
             frag.Show(FragmentManager, DatePickerFragment.TAG);
         }
         private class DatePickerFragment : DialogFragment, DatePickerDialog.IOnDateSetListener
