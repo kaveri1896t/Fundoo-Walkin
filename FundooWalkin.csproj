@@ -59,7 +59,11 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <Compile Include="DashboardActivity.cs" />
+=======
     <Compile Include="helper\Helper.cs" />
+>>>>>>> 049db04890ea876a7664a3717c47d7a377489ae3
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
