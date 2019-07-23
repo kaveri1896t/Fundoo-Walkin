@@ -12,13 +12,16 @@
         android:id="@+id/myimg" 
         android:layout_width="110dp"
         android:layout_height="80dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
        android:layout_gravity="center"
         android:background="@drawable/fundooicon"
     />
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="120dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <EditText
@@ -31,7 +34,8 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="15dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -51,6 +55,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:text="Login"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:textColor="#f8f9f9"
         android:background="@layout/rounded_button_settings" />
 

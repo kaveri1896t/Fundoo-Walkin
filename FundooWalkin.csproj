@@ -59,11 +59,8 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="DashboardActivity.cs" />
-=======
     <Compile Include="helper\Helper.cs" />
->>>>>>> 049db04890ea876a7664a3717c47d7a377489ae3
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,7 +76,7 @@
     </AndroidResource>
     <AndroidResource Include="Resources\values\colors.xml" />
     <AndroidResource Include="Resources\values\ic_launcher_background.xml" />
-    <AndroidResource Include="Resources\values\strings.xml" />
+    <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\values\styles.xml" />
     <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml" />
     <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher_round.xml" />
@@ -117,9 +114,6 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\FundooIcon.png" />
   </ItemGroup>
-<<<<<<< HEAD
-  <ItemGroup />
-=======
   <ItemGroup>
     <AndroidResource Include="Resources\layout\DashboardPage.axml">
       <SubType>Designer</SubType>
@@ -131,7 +125,9 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\LocationIcon.png" />
   </ItemGroup>
->>>>>>> 6523632f070c61bb9bb50ae2958434c8a5e14d6f
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\locationIcon1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
     Other similar extension points exist, see Microsoft.Common.targets.

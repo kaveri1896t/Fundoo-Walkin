@@ -1,6 +1,9 @@
 <resources>
   <string name="app_name">FundooWalkin</string>
   <string name="action_settings">Settings</string>
+  <string name="SelectedCandidate">Selected</string>
+  <string name="TBDCandidate">TBD</string>
+  <string name="RejectedCandidate">Rejected</string>
   <string-array name="LocationArray">
     <item>BL-Mumbai</item>
     <item>BL-Banglore</item>

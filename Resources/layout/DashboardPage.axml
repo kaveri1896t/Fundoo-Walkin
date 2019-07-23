@@ -5,34 +5,104 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp">
-
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:textAlignment="center">
-        <Spinner
-            android:layout_width="101.0dp"
-            android:layout_height="wrap_content"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_marginTop="10dp"
+        android:textAlignment="viewEnd">
+        <ImageView
+            android:src="@drawable/locationicon1"
+            android:layout_marginTop="15dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="145dp"
+            android:layout_width="12dp"
+            android:layout_height="15dp"
+            android:id="@+id/imageView1"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="70dp"
+            android:gravity="start"
             android:id="@+id/spinnerLocation"
             />
         <Button
-            android:layout_width="120dp"
+            android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:drawableRight="@android:drawable/ic_menu_my_calendar"
             android:background="@android:color/holo_blue_dark"
-            android:text="22/6/19"
             android:id="@+id/BtnCalendar"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
+            android:gravity="end"
             />
-        </LinearLayout>
-
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <Button
+            android:id="@+id/BtnSelected"
+            android:layout_width="110dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="17dp"
+            android:text="25&#10;Selected"
+            />
+        <Button
+            android:id="@+id/BtnTBD"
+            android:layout_width="110dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:textSize="17dp"
+            android:text="02&#10;TBD"
+            />
+        <Button
+            android:id="@+id/BtnRejected"
+            android:layout_width="110dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="10dp"
+            android:textSize="17dp"
+            android:text="0&#10;Rejected"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/EveryDayLayout">
+        <TextView
+            android:id="@+id/TxtCurrentDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+        />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/SearchLinearLayout"
+        android:gravity="bottom"
+        android:layout_gravity="bottom"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <SearchView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:id="@+id/CandidateSearchView" 
+        />
+    </LinearLayout>
 </LinearLayout>
