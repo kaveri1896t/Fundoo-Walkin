@@ -16,7 +16,7 @@ namespace FundooWalkin.helper
 {
     public class Helper
     {
-        HttpClient client = new HttpClient();
+      /*  HttpClient client = new HttpClient();
         string url = "";
 
         public async Task<HttpResponseMessage> LoginUser(User user)
@@ -31,7 +31,7 @@ namespace FundooWalkin.helper
 
             response = await client.PostAsync(uri, content);
             return response;
-        }
+        }*/
 
     }
 }
