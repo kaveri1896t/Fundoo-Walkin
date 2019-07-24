@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp">
+    android:orientation="vertical">
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -13,9 +13,10 @@
         <ImageView
             android:src="@drawable/locationicon1"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:layout_width="12dp"
             android:layout_height="15dp"
+            android:layout_marginBottom="20dp"
             android:id="@+id/imageView1"/>
 
         <Spinner
@@ -23,55 +24,64 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="0dp"
-            android:layout_marginRight="70dp"
+            android:layout_marginRight="52dp"
+            android:layout_marginBottom="20dp"
             android:gravity="start"
             android:id="@+id/spinnerLocation"
             />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="20dp"
+            android:textColor="@android:color/white"
+            android:background="@layout/rounded_blue"
             android:drawableRight="@android:drawable/ic_menu_my_calendar"
-            android:background="@android:color/holo_blue_dark"
             android:id="@+id/BtnCalendar"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="0dp"
             android:layout_marginRight="10dp"
-            android:gravity="end"
+            android:layout_marginBottom="20dp"
             />
     </LinearLayout>
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="320dp"
+        android:layout_height="75dp"
         android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:background="@layout/rounded_linearLayout">
         <Button
             android:id="@+id/BtnSelected"
-            android:layout_width="110dp"
-            android:layout_height="80dp"
+            android:layout_width="90dp"
+            android:layout_height="63dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="0dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="20dp"
             android:textSize="17dp"
+            android:background="@null"
             android:text="25&#10;Selected"
+            
             />
         <Button
             android:id="@+id/BtnTBD"
-            android:layout_width="110dp"
-            android:layout_height="80dp"
+            android:layout_width="90dp"
+            android:layout_height="63dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="0dp"
             android:layout_marginRight="0dp"
             android:textSize="17dp"
+            android:background="@null"
             android:text="02&#10;TBD"
             />
         <Button
             android:id="@+id/BtnRejected"
-            android:layout_width="110dp"
-            android:layout_height="80dp"
+            android:layout_width="90dp"
+            android:layout_height="63dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="0dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="20dp"
             android:textSize="17dp"
-            android:text="0&#10;Rejected"
+            android:background="@null"
+          android:text="0&#10;Rejected"
             />
     </LinearLayout>
     <LinearLayout
@@ -84,25 +94,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_gravity="center"
-        />
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="center"/>
     </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
+    <SearchView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/SearchLinearLayout"
-        android:gravity="bottom"
-        android:layout_gravity="bottom"
-        android:minWidth="25px"
-        android:minHeight="25px">
-        <SearchView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:id="@+id/CandidateSearchView" 
-        />
-    </LinearLayout>
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search Candidate"
+        android:id="@+id/CandidateSearchView" />
+
 </LinearLayout>

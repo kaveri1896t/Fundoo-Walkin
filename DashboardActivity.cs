@@ -7,8 +7,11 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V7.App;
+using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+using SearchView = Android.Widget.SearchView;
 
 namespace FundooWalkin
 {
@@ -16,7 +19,7 @@ namespace FundooWalkin
     /// Dashboard showing the candidates selected, to be determined and rejected 
     /// </summary>
     [Activity(Label = "DashboardActivity")]
-    public class DashboardActivity : Activity
+    public class DashboardActivity : AppCompatActivity
     {
         private DateTime currentDate;
         private Button _dateSelectButton;
@@ -26,6 +29,7 @@ namespace FundooWalkin
         private Button RejectedButton;
         private TextView TxtViewCurrentDate;
         private LinearLayout EveryDayLinearLayout;
+        private SearchView searchView;
 
         /// <summary>
         /// Overriding on create method of activity to custumize the dashboard behaviour
@@ -72,6 +76,10 @@ namespace FundooWalkin
             ////set the actions to the current date textview
             TxtViewCurrentDate = FindViewById<TextView>(Resource.Id.TxtCurrentDate);
             TxtViewCurrentDate.Text = currentDate.ToLongDateString();
+
+            ////set the actions to the search view
+            searchView = FindViewById<SearchView>(Resource.Id.CandidateSearchView);  
+            searchView.SetVerticalGravity(GravityFlags.Bottom);
         }
 
         /// <summary>
@@ -81,7 +89,7 @@ namespace FundooWalkin
         /// <param name="e">event arguments</param>
         private void RejectedButton_OnClick(object sender, EventArgs e)
         {
-            //StartActivity(typeof(SelectedActivity));
+            Toast.MakeText(this, "Clicked", ToastLength.Short).Show();
         }
 
         /// <summary>
@@ -91,7 +99,7 @@ namespace FundooWalkin
         /// <param name="e">event arguments</param>
         private void TBDButton_OnClick(object sender, EventArgs e)
         {
-            
+            Toast.MakeText(this, "Clicked", ToastLength.Short).Show();
         }
 
         /// <summary>
@@ -101,7 +109,7 @@ namespace FundooWalkin
         /// <param name="e">event arguments</param>
         private void SelectedButton_OnClick(object sender, EventArgs e)
         {
-            
+            Toast.MakeText(this, "Clicked", ToastLength.Short).Show();
         }
 
         /// <summary>
