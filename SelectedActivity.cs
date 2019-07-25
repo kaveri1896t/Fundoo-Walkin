@@ -46,7 +46,7 @@ namespace FundooWalkin
             /*  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
               getSupportActionBar().setTitle("Home");
               getSupportActionBar().setSubtitle("sairam");*/
-           // SupportActionBar.NavigationMode{SetContentView(Resource.Layout.)}
+          //  SupportActionBar.NavigationMode{ SetContentView(Resource.Layout.LoginPage); };
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.Title = "Selected";
             
