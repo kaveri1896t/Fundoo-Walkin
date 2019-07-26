@@ -28,8 +28,14 @@ namespace FundooWalkin
         private Button TBDButton;
         private Button RejectedButton;
         private TextView TxtViewCurrentDate;
-        private LinearLayout EveryDayLinearLayout;
+        //private LinearLayout EveryDayLinearLayout;
         private SearchView searchView;
+        //private ListView candidateList;
+        private LinearLayout statusLayout;
+        private TextView TxtCandidateOne;
+        private TextView TxtCandidateTwo;
+        private TextView TxtTimeOne;
+        private TextView TxtTimeOne1;
 
         /// <summary>
         /// Overriding on create method of activity to custumize the dashboard behaviour
@@ -45,41 +51,66 @@ namespace FundooWalkin
             SetContentView(Resource.Layout.DashboardPage);
 
             ////Set the actions to the date picker
-            _dateSelectButton = FindViewById<Button>(Resource.Id.BtnCalendar);
-            _dateSelectButton.Click += DateSelect_OnClick;
-            _dateSelectButton.Text = currentDate.ToShortDateString();
+            this._dateSelectButton = FindViewById<Button>(Resource.Id.BtnCalendar);
+            this._dateSelectButton.Click += DateSelect_OnClick;
+            this._dateSelectButton.Text = currentDate.ToShortDateString();
 
             ////set the actions to the spinner
-            spinner = FindViewById<Spinner>(Resource.Id.spinnerLocation);
-            spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
+            this.spinner = FindViewById<Spinner>(Resource.Id.spinnerLocation);
+            this.spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
             var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.LocationArray, Android.Resource.Layout.SimpleSpinnerItem);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            spinner.Adapter = adapter;
+            this.spinner.Adapter = adapter;
 
             ////set the actions to the selected button
-            SelectedButton = FindViewById<Button>(Resource.Id.BtnSelected);
-            SelectedButton.Click += SelectedButton_OnClick;
+            this.SelectedButton = FindViewById<Button>(Resource.Id.BtnSelected);
+            this.SelectedButton.Click += SelectedButton_OnClick;
             //SelectedButton.Text = "25&#10;" + Resources.GetString(Resource.String.SelectedCandidate);
 
             ////set the actions to the To be determined button
-            TBDButton = FindViewById<Button>(Resource.Id.BtnTBD);
-            TBDButton.Click += TBDButton_OnClick;
+            this.TBDButton = FindViewById<Button>(Resource.Id.BtnTBD);
+            this.TBDButton.Click += TBDButton_OnClick;
             //TBDButton.Text = "02&#10;" + Resources.GetString(Resource.String.TBDCandidate);
 
             ////set the actions to the rejected button
-            RejectedButton = FindViewById<Button>(Resource.Id.BtnRejected);
-            RejectedButton.Click += RejectedButton_OnClick;
+            this.RejectedButton = FindViewById<Button>(Resource.Id.BtnRejected);
+            this.RejectedButton.Click += RejectedButton_OnClick;
             //RejectedButton.Text = "0&#10;" + Resources.GetString(Resource.String.RejectedCandidate);
 
             //EveryDayLinearLayout = FindViewById<LinearLayout>(Resource.Id)
 
             ////set the actions to the current date textview
-            TxtViewCurrentDate = FindViewById<TextView>(Resource.Id.TxtCurrentDate);
-            TxtViewCurrentDate.Text = currentDate.ToLongDateString();
+            this.TxtViewCurrentDate = FindViewById<TextView>(Resource.Id.TxtCurrentDate);
+            this.TxtViewCurrentDate.Text = this.currentDate.ToLongDateString();
 
             ////set the actions to the search view
-            searchView = FindViewById<SearchView>(Resource.Id.CandidateSearchView);  
-            searchView.SetVerticalGravity(GravityFlags.Bottom);
+            this.searchView = FindViewById<SearchView>(Resource.Id.CandidateSearchView);
+            this.searchView.SetVerticalGravity(GravityFlags.Bottom);
+
+            ////set the candidate status in the list view
+            /*candidateList = FindViewById<ListView>(Resource.Id.CandidateStatus);
+            string[] candidates = new string[]{ "abc", "def", "ghi" };
+            candidateList.Adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, candidates);*/
+
+            ////set the status layout
+            this.statusLayout = FindViewById<LinearLayout>(Resource.Id.EveryDayLayout);
+
+            ////set the candidate status 
+            this.TxtCandidateOne = FindViewById<TextView>(Resource.Id.TxtCandidate1);
+            this.TxtCandidateOne.Text = "Aniket Chile selected";
+
+            ////set the candidate status
+            this.TxtCandidateTwo = FindViewById<TextView>(Resource.Id.TxtCandidate2);
+            this.TxtCandidateTwo.Text = "Dipu Pillai rejected";
+
+            ////set the time when the candidate status is displayed
+            this.TxtTimeOne = FindViewById<TextView>(Resource.Id.TxtTime);
+            this.TxtTimeOne.Text = "1:20 PM";
+
+            ////set the time when the candidate status is displayed
+            this.TxtTimeOne1 = FindViewById<TextView>(Resource.Id.TxtTime1);
+            this.TxtTimeOne1.Text = "1:25 PM";
+
         }
 
         /// <summary>
@@ -110,6 +141,7 @@ namespace FundooWalkin
         private void SelectedButton_OnClick(object sender, EventArgs e)
         {
             Toast.MakeText(this, "Clicked", ToastLength.Short).Show();
+            StartActivity(typeof(CandidateRemarkActivity));
         }
 
         /// <summary>

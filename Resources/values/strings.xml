@@ -9,4 +9,14 @@
     <item>BL-Banglore</item>
     <item>BL-Chennai</item>
   </string-array>
+  <string-array name="RemarkArray">
+    <item>OK</item>
+    <item>Fine</item>
+    <item>Good</item>
+  </string-array>
+  <string-array name="CandidateArray">
+    <item>Aniket Chile</item>
+    <item>Dipu Pillai</item>
+    <item>Poonam Patil</item>
+  </string-array>
 </resources>
