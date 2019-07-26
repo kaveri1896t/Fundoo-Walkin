@@ -6,11 +6,13 @@
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_above="@+id/secondLayout"
             android:background="@layout/halfRounded">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -22,11 +24,13 @@
                     android:textColor="@android:color/black"
                     android:textSize="18dp"
                     android:textStyle="bold"
+                    android:layout_marginLeft="22dp"
                     android:id="@+id/nameText"/>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="25dp"
+                    android:layout_marginLeft="153dp"
                     android:textSize="10dp"
                     android:textColor="@android:color/black"
                     android:id="@+id/dateText"
@@ -41,53 +45,241 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <ImageView
-               android:src="@drawable/email"
-               android:layout_marginTop="15dp"
-               android:layout_marginLeft="20dp"
-               android:layout_width="12dp"
-               android:layout_height="15dp"
-               android:layout_marginBottom="20dp"
-               android:id="@+id/imageViewEmail"/>
+                        android:src="@drawable/email"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_width="12dp"
+                        android:layout_height="15dp"
+                        android:id="@+id/imageViewEmail"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                    android:id="@+id/emailText"/>
+                        android:layout_marginTop="6dp"
+                        android:id="@+id/emailText"/>
                 </LinearLayout>
-                 <LinearLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <ImageView
-               android:src="@drawable/browser"
-               android:layout_marginTop="15dp"
-               android:layout_marginLeft="20dp"
-               android:layout_width="12dp"
-               android:layout_height="15dp"
-               android:layout_marginBottom="20dp"
-               android:id="@+id/imageViewOnline"/>
+                        android:src="@drawable/browser"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_width="12dp"
+                        android:layout_height="15dp"
+                        android:layout_marginRight="6dp"
+                        android:id="@+id/imageViewOnline"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                    android:id="@+id/onlineText"/>
+                        android:layout_marginTop="6dp"
+                        android:id="@+id/onlineText"/>
                 </LinearLayout>
-                 <LinearLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <ImageView
-               android:src="@drawable/locationicon"
-               android:layout_marginTop="15dp"
-               android:layout_marginLeft="20dp"
-               android:layout_width="12dp"
-               android:layout_height="15dp"
-               android:layout_marginBottom="20dp"
-               android:id="@+id/imageViewOnline"/>
+                        android:src="@drawable/locationicon"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_width="12dp"
+                        android:layout_height="15dp"
+                        android:layout_marginRight="6dp"
+                        android:id="@+id/imageViewOnline"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                    android:id="@+id/locationText"/>
+                        android:layout_marginTop="6dp"
+                        android:id="@+id/locationText"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_above="@+id/thirdLayout"
+            android:id="@+id/secondLayout">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/feedback"
+                    android:text="FEEDBACK :"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingHorizontal="40dp"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Attitude"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="28dp"
+                    android:text="Communication"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="28dp"
+                    android:text="Knowledge"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="42dp"
+                android:paddingHorizontal="10dp"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal"
+                android:layout_gravity="start">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/attitudeText"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="82dp"
+                    android:id="@+id/communicationText"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="88dp"
+                    android:id="@+id/knowledgeText"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_above="@+id/fourthLayout"
+            android:id="@+id/thirdLayout">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/status"
+                    android:text="STATUS :"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioGroup
+                    android:id="@+id/rg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="15dp">
+                    <RadioButton
+                        android:id="@+id/rb_selected"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Selected"
+                        android:layout_marginLeft="7dp"
+                        android:paddingRight="10dp"/>
+                    <RadioButton
+                        android:id="@+id/rb_tbd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:text="TBD"
+                        android:paddingRight="10dp"/>
+                    <RadioButton
+                        android:id="@+id/rb_rejected"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rejected"
+                        android:layout_marginLeft="33dp"
+                        android:paddingRight="10dp"/>
+                </RadioGroup>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/fourthLayout"
+            android:orientation="vertical"
+            android:layout_above="@+id/fifthLayout">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                 android:layout_above="@+id/subLayoutOfRemark">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/remark"
+                    android:text="Remarks :"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:id="@+id/subLayoutOfRemark">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/remarkText"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:id="@+id/fifthLayout">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="170dp"
+                android:id="@+id/cancelBtn"
+                android:text="Cancel"
+                android:background="@layout/rounded_uncolorBtn"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/editBtn"
+                android:text="Edit"
+                
+                android:background="@layout/rounded_uncolorBtn"/>
+        </LinearLayout>
+
     </LinearLayout>
 </RelativeLayout>
