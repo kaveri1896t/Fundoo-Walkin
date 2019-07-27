@@ -49,23 +49,23 @@ namespace FundooWalkin
           //  SupportActionBar.NavigationMode{ SetContentView(Resource.Layout.LoginPage); };
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.Title = "Selected";
-            
-          //  ColorDrawable colorDrawable = new ColorDrawable(Color.White);
+
+            //  ColorDrawable colorDrawable = new ColorDrawable(Color.White);
             //ActionBar.SetBackgroundDrawable(colorDrawable);
-          //  SupportActionBar.SetBackgroundDrawable(colorDrawable);
-
-
-            inputSearch = FindViewById<EditText>(Resource.Id.inputSearch);
-            
-            inputSearch.TextChanged += InputSearch_TextChanged;
+            //  SupportActionBar.SetBackgroundDrawable(colorDrawable);
 
             var products = new[]
 
-            {
+          {
                 "one","two","three","four"
             };
+            /*   inputSearch = FindViewById<EditText>(Resource.Id.inputSearch);
 
-            _listView = FindViewById<ListView>(Resource.Id.listview);
+               inputSearch.TextChanged += InputSearch_TextChanged;
+
+
+
+               _listView = FindViewById<ListView>(Resource.Id.listview);*/
             //_searchView = FindViewById<SearchView>(Resource.Id.searchView);
             _adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, products);
             _listView.Adapter = _adapter;

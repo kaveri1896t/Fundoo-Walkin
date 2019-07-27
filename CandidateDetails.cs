@@ -30,7 +30,8 @@ namespace FundooWalkin
         RadioButton TBD;
         RadioButton rejected;
         TextView remarkText;
-
+        Button cancel;
+        Button edit;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -66,12 +67,31 @@ namespace FundooWalkin
             selected = FindViewById<RadioButton>(Resource.Id.rb_selected);
             selected.Click += selectedClicked;
             TBD = FindViewById<RadioButton>(Resource.Id.rb_tbd);
+
+            TBD.Checked = true;
+
             TBD.Click += Tbdclicked;
             rejected = FindViewById<RadioButton>(Resource.Id.rb_rejected);
             rejected.Click += rejectedClicked;
 
             remarkText = FindViewById<TextView>(Resource.Id.remarkText);
             remarkText.Text = "remark will be displayed here...";
+
+            cancel = FindViewById<Button>(Resource.Id.cancelBtn);
+            cancel.Click += CancelClicked;
+            edit = FindViewById<Button>(Resource.Id.editBtn);
+            edit.Click  += EditClicked;
+        }
+
+        private void EditClicked(object sender, EventArgs e)
+        {
+            edit.SetBackgroundColor(Color.Orange);
+            StartActivity(typeof(MainActivity));
+        }
+
+        private void CancelClicked(object sender, EventArgs e)
+        {
+            cancel.SetBackgroundColor(Color.Orange);
         }
 
         private void rejectedClicked(object sender, EventArgs e)

@@ -250,7 +250,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
+                android:layout_margin="10dp"
                 android:id="@+id/subLayoutOfRemark">
                 <TextView
                     android:layout_width="match_parent"
@@ -262,19 +262,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="135dp"
             android:id="@+id/fifthLayout">
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="98dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="170dp"
+                android:layout_marginLeft="142dp"
                 android:id="@+id/cancelBtn"
                 android:text="Cancel"
                 android:background="@layout/rounded_uncolorBtn"/>
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="98dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="15dp"
                 android:id="@+id/editBtn"
                 android:text="Edit"
                 
@@ -283,3 +283,4 @@
 
     </LinearLayout>
 </RelativeLayout>
+
