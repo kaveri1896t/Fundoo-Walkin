@@ -261,11 +261,13 @@
                     android:id="@+id/remarkText"/>
             </LinearLayout>
         </LinearLayout>
-
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="135dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
             android:id="@+id/fifthLayout">
             <Button
                 android:layout_width="98dp"
@@ -284,6 +286,6 @@
                 android:background="@layout/rounded_uncolorBtn"/>
         </LinearLayout>
 
-    </LinearLayout>
+    
 </RelativeLayout>
 
