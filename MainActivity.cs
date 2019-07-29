@@ -25,6 +25,7 @@ namespace FundooWalkin
 
             EditText username = FindViewById<EditText>(Resource.Id.name);
             EditText password = FindViewById<EditText>(Resource.Id.password);
+           
             Button LoginBtn = FindViewById<Button>(Resource.Id.Loginbtn);
             LoginBtn.Click += async (object sender, EventArgs e) =>
             {
@@ -33,7 +34,8 @@ namespace FundooWalkin
                      if (Regex.IsMatch(username.Text, @"^[a-z][a-z0-9]+" + "@gmail.com"))
                      {
 
-                        / User user = new User();
+                         User user = new User();
+
                          user.email = username.Text;
                          user.password = password.Text;
                          var httpResponse = await Helper.LoginUser(user);
@@ -60,7 +62,9 @@ namespace FundooWalkin
                  {
                      Toast.MakeText(this, "All Fields Must Be Filled", ToastLength.Long).Show();
                  }*/
+
                 StartActivity(typeof(DashboardActivity));
+
             };
         }
 
@@ -70,5 +74,7 @@ namespace FundooWalkin
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+
+        
     }
 }

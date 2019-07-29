@@ -16,7 +16,7 @@ namespace FundooWalkin.helper
 {
     public class Helper
     {
-        HttpClient client = new HttpClient();
+      /*  HttpClient client = new HttpClient();
         string url = "";
 
        /* public async Task<HttpResponseMessage> LoginUser(User user)
