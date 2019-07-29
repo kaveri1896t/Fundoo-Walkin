@@ -50,9 +50,9 @@ namespace FundooWalkin
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.Title = "Selected";
 
-            //  ColorDrawable colorDrawable = new ColorDrawable(Color.White);
-            //ActionBar.SetBackgroundDrawable(colorDrawable);
-            //  SupportActionBar.SetBackgroundDrawable(colorDrawable);
+            /*  ColorDrawable colorDrawable = new ColorDrawable(Color.Orange);
+              ActionBar.SetBackgroundDrawable(colorDrawable);
+              SupportActionBar.SetBackgroundDrawable(colorDrawable);*/
 
             var products = new[]
 
@@ -68,7 +68,7 @@ namespace FundooWalkin
                _listView = FindViewById<ListView>(Resource.Id.listview);*/
             //_searchView = FindViewById<SearchView>(Resource.Id.searchView);
             _adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, products);
-            _listView.Adapter = _adapter;
+            //_listView.Adapter = _adapter;
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

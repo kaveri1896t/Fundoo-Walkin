@@ -6,6 +6,7 @@ using System.Text;
 using Android.App;
 using Android.Content;
 using Android.Graphics;
+using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V4.App;
@@ -40,6 +41,9 @@ namespace FundooWalkin
 
             SetContentView(Resource.Layout.CandidateDetails);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+           /* ColorDrawable colorDrawable = new ColorDrawable(Color.Orange);
+            ActionBar.SetBackgroundDrawable(colorDrawable);
+            SupportActionBar.SetBackgroundDrawable(colorDrawable);*/
             //SupportActionBar.SetDisplayShowCustomEnabled(true);
             SupportActionBar.Title = "CANDIDATE DETAILS";
             //SupportActionBar.NavigationMode { SetContentView(Resource.Layout.SelectedPage) };
