@@ -3293,14 +3293,14 @@ namespace FundooWalkin
 			// aapt resource value: 0x7f0a00a7
 			public const int BtnCalendar = 2131361959;
 			
-			// aapt resource value: 0x7f0a00df
-			public const int BtnRadioRejected = 2131362015;
+			// aapt resource value: 0x7f0a00e2
+			public const int BtnRadioRejected = 2131362018;
 			
-			// aapt resource value: 0x7f0a00dd
-			public const int BtnRadioSelected = 2131362013;
+			// aapt resource value: 0x7f0a00e0
+			public const int BtnRadioSelected = 2131362016;
 			
-			// aapt resource value: 0x7f0a00de
-			public const int BtnRadioTBD = 2131362014;
+			// aapt resource value: 0x7f0a00e1
+			public const int BtnRadioTBD = 2131362017;
 			
 			// aapt resource value: 0x7f0a00ab
 			public const int BtnRejected = 2131361963;
@@ -3344,17 +3344,17 @@ namespace FundooWalkin
 			// aapt resource value: 0x7f0a00a4
 			public const int SecondLinear = 2131361956;
 			
+			// aapt resource value: 0x7f0a00db
+			public const int SpinnerAttitude = 2131362011;
+			
+			// aapt resource value: 0x7f0a00dc
+			public const int SpinnerCommunication = 2131362012;
+			
+			// aapt resource value: 0x7f0a00dd
+			public const int SpinnerKnowledge = 2131362013;
+			
 			// aapt resource value: 0x7f0a00d8
-			public const int SpinnerAttitude = 2131362008;
-			
-			// aapt resource value: 0x7f0a00d9
-			public const int SpinnerCommunication = 2131362009;
-			
-			// aapt resource value: 0x7f0a00da
-			public const int SpinnerKnowledge = 2131362010;
-			
-			// aapt resource value: 0x7f0a00d5
-			public const int TxtAttitude = 2131362005;
+			public const int TxtAttitude = 2131362008;
 			
 			// aapt resource value: 0x7f0a00ad
 			public const int TxtCandidate1 = 2131361965;
@@ -3362,20 +3362,29 @@ namespace FundooWalkin
 			// aapt resource value: 0x7f0a00af
 			public const int TxtCandidate2 = 2131361967;
 			
+			// aapt resource value: 0x7f0a00d2
+			public const int TxtCandidateEmail = 2131362002;
+			
+			// aapt resource value: 0x7f0a00d4
+			public const int TxtCandidateLocation = 2131362004;
+			
 			// aapt resource value: 0x7f0a00d6
-			public const int TxtCommunication = 2131362006;
+			public const int TxtCandidateStatus = 2131362006;
+			
+			// aapt resource value: 0x7f0a00d9
+			public const int TxtCommunication = 2131362009;
 			
 			// aapt resource value: 0x7f0a00ac
 			public const int TxtCurrentDate = 2131361964;
 			
-			// aapt resource value: 0x7f0a00d4
-			public const int TxtFeedback = 2131362004;
-			
 			// aapt resource value: 0x7f0a00d7
-			public const int TxtKnowledge = 2131362007;
+			public const int TxtFeedback = 2131362007;
 			
-			// aapt resource value: 0x7f0a00db
-			public const int TxtStatus = 2131362011;
+			// aapt resource value: 0x7f0a00da
+			public const int TxtKnowledge = 2131362010;
+			
+			// aapt resource value: 0x7f0a00de
+			public const int TxtStatus = 2131362014;
 			
 			// aapt resource value: 0x7f0a00ae
 			public const int TxtTime = 2131361966;
@@ -3635,11 +3644,11 @@ namespace FundooWalkin
 			// aapt resource value: 0x7f0a00d1
 			public const int layoutEmail = 2131362001;
 			
-			// aapt resource value: 0x7f0a00d2
-			public const int layoutLocation = 2131362002;
-			
 			// aapt resource value: 0x7f0a00d3
-			public const int layoutOnline = 2131362003;
+			public const int layoutLocation = 2131362003;
+			
+			// aapt resource value: 0x7f0a00d5
+			public const int layoutOnline = 2131362005;
 			
 			// aapt resource value: 0x7f0a0054
 			public const int left = 2131361876;
@@ -3656,8 +3665,8 @@ namespace FundooWalkin
 			// aapt resource value: 0x7f0a0070
 			public const int list_item = 2131361904;
 			
-			// aapt resource value: 0x7f0a00e1
-			public const int masked = 2131362017;
+			// aapt resource value: 0x7f0a00e4
+			public const int masked = 2131362020;
 			
 			// aapt resource value: 0x7f0a009c
 			public const int message = 2131361948;
@@ -3731,8 +3740,8 @@ namespace FundooWalkin
 			// aapt resource value: 0x7f0a0087
 			public const int radio = 2131361927;
 			
-			// aapt resource value: 0x7f0a00dc
-			public const int radioGroup1 = 2131362012;
+			// aapt resource value: 0x7f0a00df
+			public const int radioGroup1 = 2131362015;
 			
 			// aapt resource value: 0x7f0a0055
 			public const int right = 2131361877;
@@ -3956,8 +3965,8 @@ namespace FundooWalkin
 			// aapt resource value: 0x7f0a001b
 			public const int view_offset_helper = 2131361819;
 			
-			// aapt resource value: 0x7f0a00e0
-			public const int visible = 2131362016;
+			// aapt resource value: 0x7f0a00e3
+			public const int visible = 2131362019;
 			
 			// aapt resource value: 0x7f0a0043
 			public const int withText = 2131361859;
