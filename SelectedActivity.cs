@@ -6,7 +6,7 @@ using System.Text;
 using Android.App;
 using Android.Content;
 using Android.Graphics;
-using Android.Graphics.Drawables;
+//using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V4.View;
@@ -50,9 +50,10 @@ namespace FundooWalkin
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.Title = "Selected";
 
-            /*  ColorDrawable colorDrawable = new ColorDrawable(Color.Orange);
-              ActionBar.SetBackgroundDrawable(colorDrawable);
-              SupportActionBar.SetBackgroundDrawable(colorDrawable);*/
+            //ColorDrawable colorDrawable = new ColorDrawable(Resource.Color.primary);
+            //ColorDrawable color = new ColorDrawable(Colo);
+              //ActionBar.SetBackgroundDrawable(colorDrawable);
+             // SupportActionBar.SetBackgroundDrawable(colorDrawable);
 
             var products = new[]
 

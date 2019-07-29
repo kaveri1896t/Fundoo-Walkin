@@ -50,6 +50,9 @@ namespace FundooWalkin
             //// Set our view from the "DashboardPage" layout resource
             SetContentView(Resource.Layout.DashboardPage);
 
+            ////set status bar color to orange
+            Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
+
             ////Set the actions to the date picker
             this._dateSelectButton = FindViewById<Button>(Resource.Id.BtnCalendar);
             this._dateSelectButton.Click += DateSelect_OnClick;
@@ -141,7 +144,7 @@ namespace FundooWalkin
         private void SelectedButton_OnClick(object sender, EventArgs e)
         {
             Toast.MakeText(this, "Select button Clicked", ToastLength.Short).Show();
-            StartActivity(typeof(CandidateRemarkActivity));
+            StartActivity(typeof(SelectedActivity));
         }
 
         /// <summary>

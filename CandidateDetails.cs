@@ -69,14 +69,20 @@ namespace FundooWalkin
             knowledge.Text = "Good";
 
             selected = FindViewById<RadioButton>(Resource.Id.rb_selected);
-            selected.Click += selectedClicked;
+            
+            //selected.Click += selectedClicked;
             TBD = FindViewById<RadioButton>(Resource.Id.rb_tbd);
 
-            TBD.Checked = true;
-
-            TBD.Click += Tbdclicked;
+           
+            //TBD.Click += Tbdclicked;
             rejected = FindViewById<RadioButton>(Resource.Id.rb_rejected);
-            rejected.Click += rejectedClicked;
+            // rejected.Click += rejectedClicked;
+           
+            if(selected.Checked=true)
+            {
+                TBD.Checked = false;
+                rejected.Checked = false;
+            }
 
             remarkText = FindViewById<TextView>(Resource.Id.remarkText);
             remarkText.Text = "remark will be displayed here...";
@@ -90,15 +96,16 @@ namespace FundooWalkin
         private void EditClicked(object sender, EventArgs e)
         {
             edit.SetBackgroundColor(Color.Orange);
-            StartActivity(typeof(MainActivity));
+            StartActivity(typeof(CandidateRemarkActivity));
         }
 
         private void CancelClicked(object sender, EventArgs e)
         {
             cancel.SetBackgroundColor(Color.Orange);
+            StartActivity(typeof(SelectedActivity));
         }
 
-        private void rejectedClicked(object sender, EventArgs e)
+       /* private void rejectedClicked(object sender, EventArgs e)
         {
             rejected.SetTextColor(Color.Green);
         }
@@ -111,7 +118,7 @@ namespace FundooWalkin
         private void selectedClicked(object sender, EventArgs e)
         {
             selected.SetTextColor(Color.Green);
-        }
+        }*/
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {

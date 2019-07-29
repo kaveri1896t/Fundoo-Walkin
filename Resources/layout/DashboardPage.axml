@@ -40,13 +40,13 @@
                     android:layout_marginBottom="20dp"
                     android:gravity="start"
                     android:id="@+id/spinnerLocation"
-                    android:background="#f0eeee"
+                    android:background="#FF8C00"
             />
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:textColor="@android:color/white"
-                    android:background="@layout/rounded_blue"
+                    android:textColor="#FF7619"
+                    android:background="@layout/rounded_textView"
                     android:drawableRight="@android:drawable/ic_menu_my_calendar"
                     android:id="@+id/BtnCalendar"
                     android:layout_marginTop="10dp"
@@ -72,7 +72,7 @@
                     android:layout_marginRight="0dp"
                     android:layout_marginLeft="20dp"
                     android:textSize="17dp"
-                    android:textColor="#646363"
+                    android:textColor="@android:color/white"
                     android:background="@null"
                     android:text="25&#10;Selected"
             />
@@ -84,7 +84,7 @@
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
                     android:textSize="17dp"
-                    android:textColor="#646363"
+                    android:textColor="@android:color/white"
                     android:background="@null"
                     android:text="02&#10;TBD"
             />
@@ -96,7 +96,7 @@
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="20dp"
                     android:textSize="17dp"
-                    android:textColor="#646363"
+                    android:textColor="@android:color/white"
                     android:background="@null"
                     android:text="0&#10;Rejected"
             />
