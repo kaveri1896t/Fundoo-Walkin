@@ -120,7 +120,7 @@ namespace FundooWalkin
         /// <param name="e">event arguments</param>
         private void RejectedButton_OnClick(object sender, EventArgs e)
         {
-            Toast.MakeText(this, "Clicked", ToastLength.Short).Show();
+            Toast.MakeText(this, "Reject Clicked", ToastLength.Short).Show();
         }
 
         /// <summary>
@@ -130,7 +130,7 @@ namespace FundooWalkin
         /// <param name="e">event arguments</param>
         private void TBDButton_OnClick(object sender, EventArgs e)
         {
-            Toast.MakeText(this, "Clicked", ToastLength.Short).Show();
+            Toast.MakeText(this, "TBD Clicked", ToastLength.Short).Show();
         }
 
         /// <summary>
@@ -140,7 +140,7 @@ namespace FundooWalkin
         /// <param name="e">event arguments</param>
         private void SelectedButton_OnClick(object sender, EventArgs e)
         {
-            Toast.MakeText(this, "Clicked", ToastLength.Short).Show();
+            Toast.MakeText(this, "Select Clicked", ToastLength.Short).Show();
             StartActivity(typeof(CandidateRemarkActivity));
         }
 
