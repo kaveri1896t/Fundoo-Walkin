@@ -35,6 +35,7 @@ namespace FundooWalkin
                      {
 
                          User user = new User();
+
                          user.email = username.Text;
                          user.password = password.Text;
                          var httpResponse = await Helper.LoginUser(user);
@@ -61,7 +62,9 @@ namespace FundooWalkin
                  {
                      Toast.MakeText(this, "All Fields Must Be Filled", ToastLength.Long).Show();
                  }*/
-                StartActivity(typeof(SelectedActivity));
+
+                StartActivity(typeof(DashboardActivity));
+
             };
         }
 

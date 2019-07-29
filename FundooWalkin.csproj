@@ -59,8 +59,13 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+
     <Compile Include="Candidate.cs" />
     <Compile Include="CandidateDetails.cs" />
+
+    <Compile Include="CandidateRemarkActivity.cs" />
+    <Compile Include="DashboardActivity.cs" />
+
     <Compile Include="helper\Helper.cs" />
     <Compile Include="JavaHolder.cs" />
     <Compile Include="MainActivity.cs" />
@@ -80,7 +85,7 @@
     </AndroidResource>
     <AndroidResource Include="Resources\values\colors.xml" />
     <AndroidResource Include="Resources\values\ic_launcher_background.xml" />
-    <AndroidResource Include="Resources\values\strings.xml" />
+    <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\values\styles.xml" />
     <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml" />
     <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher_round.xml" />
@@ -121,11 +126,13 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\FundooIcon.png" />
   </ItemGroup>
+
   <ItemGroup>
     <AndroidResource Include="Resources\layout\SelectedPage.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
+
   <ItemGroup>
     <AndroidResource Include="Resources\layout\DashboardPage.axml">
       <SubType>Designer</SubType>
@@ -138,17 +145,28 @@
     <AndroidResource Include="Resources\drawable\LocationIcon.png" />
   </ItemGroup>
   <ItemGroup>
+
     <AndroidResource Include="Resources\menu\main.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\CandidateDetails.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+
+    <AndroidResource Include="Resources\drawable\locationIcon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\rounded_blue.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\rounded_gray.xml" />
+
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\rounded_linearLayout.xml" />
   </ItemGroup>
   <ItemGroup>
+
     <AndroidResource Include="Resources\layout\rounded_textView.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -165,10 +183,36 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Candiate.axml">
+
+    <AndroidResource Include="Resources\layout\rounded_lightGray.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\FillDetailsPage.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\layout\halfRounded.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\rounded_green.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\rounded_red.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\RemarkCandidatePage.axml">
+
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+
+
+    <AndroidResource Include="Resources\drawable\ArrowLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+
     <AndroidResource Include="Resources\drawable\browserOnline.png" />
   </ItemGroup>
   <ItemGroup>

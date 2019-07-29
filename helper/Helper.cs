@@ -19,7 +19,7 @@ namespace FundooWalkin.helper
       /*  HttpClient client = new HttpClient();
         string url = "";
 
-        public async Task<HttpResponseMessage> LoginUser(User user)
+       /* public async Task<HttpResponseMessage> LoginUser(User user)
         {
 
             var uri = new Uri(url + "user/login");

@@ -1,9 +1,22 @@
 <resources>
   <string name="app_name">FundooWalkin</string>
   <string name="action_settings">Settings</string>
+  <string name="SelectedCandidate">Selected</string>
+  <string name="TBDCandidate">TBD</string>
+  <string name="RejectedCandidate">Rejected</string>
   <string-array name="LocationArray">
     <item>BL-Mumbai</item>
     <item>BL-Banglore</item>
     <item>BL-Chennai</item>
+  </string-array>
+  <string-array name="RemarkArray">
+    <item>OK</item>
+    <item>Fine</item>
+    <item>Good</item>
+  </string-array>
+  <string-array name="CandidateArray">
+    <item>Aniket Chile</item>
+    <item>Dipu Pillai</item>
+    <item>Poonam Patil</item>
   </string-array>
 </resources>
