@@ -6,6 +6,7 @@ using System.Text;
 using Android.App;
 using Android.Content;
 using Android.Graphics;
+using Android.Graphics.Drawables;
 //using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Runtime;
@@ -34,6 +35,9 @@ namespace FundooWalkin
 
             // Create your application here
             SetContentView(Resource.Layout.SelectedPage);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+            ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF8C00"));
+            SupportActionBar.SetBackgroundDrawable(colorDrawable);
             Button btn = FindViewById<Button>(Resource.Id.btn1);
             btn.Click += delegate { StartActivity(typeof(CandidateDetails)); };
             //Toolbar toolbar = (Toolbar)FindViewById(Resource.Id.selectedtoolbar);

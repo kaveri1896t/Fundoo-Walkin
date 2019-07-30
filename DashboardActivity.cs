@@ -18,10 +18,10 @@ namespace FundooWalkin
     /// <summary>
     /// Dashboard showing the candidates selected, to be determined and rejected 
     /// </summary>
-    [Activity(Label = "DashboardActivity")]
+    [Activity(Label = "DashboardActivity", Theme = "@style/NoActionBarTheme")]
     public class DashboardActivity : AppCompatActivity
     {
-        private DateTime currentDate;
+        private DateTime currentDate; 
         private Button _dateSelectButton;
         private Spinner spinner;
         private Button SelectedButton;

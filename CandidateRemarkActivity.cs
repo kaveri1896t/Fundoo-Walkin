@@ -5,6 +5,8 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Graphics;
+using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.App;
@@ -22,10 +24,15 @@ namespace FundooWalkin
         private TextView txtCandidateEmail;
         private TextView txtCandidateLocation;
         private TextView txtCandidateStatus;
+        private Button remarkCancelButton;
+        private Button remarkSaveButton;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.RemarkCandidatePage);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+            ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF8C00"));
+            SupportActionBar.SetBackgroundDrawable(colorDrawable);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.Title = "Poonam Yadav";
 
@@ -62,7 +69,23 @@ namespace FundooWalkin
             this.txtCandidateStatus = FindViewById<TextView>(Resource.Id.TxtCandidateStatus);
             this.txtCandidateStatus.Text = "online";
 
+            ////set the actions to the cancel button
+            this.remarkCancelButton = FindViewById<Button>(Resource.Id.BtnCancel);
+            this.remarkCancelButton.Click += remarkCancelButton_Clicked;
 
+            ////set the actions to the save butoon
+            this.remarkSaveButton = FindViewById<Button>(Resource.Id.BtnSave);
+            this.remarkSaveButton.Click += remarkSaveButton_Clicked;
+        }
+
+        private void remarkSaveButton_Clicked(object sender, EventArgs e)
+        {
+            StartActivity(typeof(DashboardActivity));
+        }
+
+        private void remarkCancelButton_Clicked(object sender, EventArgs e)
+        {
+            StartActivity(typeof(DashboardActivity));
         }
 
         private void spinnerKnowledge_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)

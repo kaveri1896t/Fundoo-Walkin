@@ -37,13 +37,13 @@ namespace FundooWalkin
         {
             base.OnCreate(savedInstanceState);
 
-            // Create your application here
+            ////Create your application here
 
             SetContentView(Resource.Layout.CandidateDetails);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
-           /* ColorDrawable colorDrawable = new ColorDrawable(Color.Orange);
-            ActionBar.SetBackgroundDrawable(colorDrawable);
-            SupportActionBar.SetBackgroundDrawable(colorDrawable);*/
+            ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF8C00"));
+            SupportActionBar.SetBackgroundDrawable(colorDrawable);
+
             //SupportActionBar.SetDisplayShowCustomEnabled(true);
             SupportActionBar.Title = "CANDIDATE DETAILS";
             //SupportActionBar.NavigationMode { SetContentView(Resource.Layout.SelectedPage) };

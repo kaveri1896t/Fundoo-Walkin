@@ -43,12 +43,13 @@
                     android:background="#FF8C00"
             />
                 <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="20dp"
                     android:textColor="#FF7619"
                     android:background="@layout/rounded_textView"
-                    android:drawableRight="@android:drawable/ic_menu_my_calendar"
+                    android:drawableRight="@drawable/calendar"
                     android:id="@+id/BtnCalendar"
+                    android:gravity="center"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="10dp"
