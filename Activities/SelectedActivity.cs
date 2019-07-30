@@ -11,13 +11,15 @@ using Android.OS;
 using Android.Runtime;
 using Android.Support.V4.View;
 using Android.Support.V7.App;
+using Android.Support.V7.Widget;
 using Android.Text;
 using Android.Views;
 using Android.Widget;
 using EditText = Android.Widget.EditText;
 using SearchView = Android.Support.V7.Widget.SearchView;
 
-namespace FundooWalkin
+namespace FundooWalkin.Activities
+
 {
     [Activity(Label = "SelectedActivity")]
     public class SelectedActivity : AppCompatActivity
@@ -26,8 +28,9 @@ namespace FundooWalkin
         TextView textView;
         private SearchView _searchView;
         private ListView _listView;
-        private ArrayAdapter _adapter;
-
+        private RecyclerViewAdapter _adapter;
+        private RecyclerView _recyclerView;
+        RecyclerView.LayoutManager _LayoutManager;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -49,25 +52,37 @@ namespace FundooWalkin
           //  SupportActionBar.NavigationMode{ SetContentView(Resource.Layout.LoginPage); };
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.Title = "Selected";
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+            ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF8C00"));
+            SupportActionBar.SetBackgroundDrawable(colorDrawable);
 
             /*  ColorDrawable colorDrawable = new ColorDrawable(Color.Orange);
               ActionBar.SetBackgroundDrawable(colorDrawable);
               SupportActionBar.SetBackgroundDrawable(colorDrawable);*/
+            _recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
+            var products = new List<Candidate>
+            {
+                new Candidate {Name = "Poonam Yadav",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
+                new Candidate {Name = "Riya Patil", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
+                new Candidate {Name = "Teena Agrawal",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
+                new Candidate {Name = "Heena Chopra", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
+                new Candidate {Name = "Kanchan Mehta", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
+                new Candidate {Name = "Riya Patil", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
+                new Candidate {Name = "Teena Agrawal",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
+                new Candidate {Name = "Heena Chopra", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
+                new Candidate {Name = "Kanchan Mehta", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
 
-            var products = new[]
-
-          {
-                "one","two","three","four"
             };
             /*   inputSearch = FindViewById<EditText>(Resource.Id.inputSearch);
 
                inputSearch.TextChanged += InputSearch_TextChanged;
-
-
-
                _listView = FindViewById<ListView>(Resource.Id.listview);*/
             //_searchView = FindViewById<SearchView>(Resource.Id.searchView);
-            _adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, products);
+            _adapter = new RecyclerViewAdapter(this, products);
+            _LayoutManager = new LinearLayoutManager(this);
+            _recyclerView.SetLayoutManager(_LayoutManager);
+            _recyclerView.SetAdapter(_adapter);//
+           // _adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, products);
             //_listView.Adapter = _adapter;
         }
 

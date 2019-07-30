@@ -5,5 +5,6 @@
     <color name="colorAccent">#3498db</color>
     <color name="DarkBlueColor">#0d24e6</color>
     <color name="LightGrayColor">#e1e1e1</color>
+  <color name="SmokeWhite">#efefeb</color>
   <color name="primary">#FF8C00</color>
 </resources>

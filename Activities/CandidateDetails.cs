@@ -15,7 +15,8 @@ using Android.Views;
 
 using Android.Widget;
 
-namespace FundooWalkin
+namespace FundooWalkin.Activities
+
 {
     [Activity(Label = "CandidateDetails")]
     public class CandidateDetails : AppCompatActivity
@@ -43,9 +44,9 @@ namespace FundooWalkin
 
             SetContentView(Resource.Layout.CandidateDetails);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
-           /* ColorDrawable colorDrawable = new ColorDrawable(Color.Orange);
-            ActionBar.SetBackgroundDrawable(colorDrawable);
-            SupportActionBar.SetBackgroundDrawable(colorDrawable);*/
+            ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF8C00"));
+            //ActionBar.SetBackgroundDrawable(colorDrawable);
+            SupportActionBar.SetBackgroundDrawable(colorDrawable);
             //SupportActionBar.SetDisplayShowCustomEnabled(true);
             SupportActionBar.Title = "CANDIDATE DETAILS";
             //SupportActionBar.NavigationMode { SetContentView(Resource.Layout.SelectedPage) };

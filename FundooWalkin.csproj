@@ -59,17 +59,19 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\RejectedActivity.cs" />
+    <Compile Include="Activities\TBDActivity.cs" />
     <Compile Include="Model\Candidate.cs" />
-    <Compile Include="Activity\CandidateDetails.cs" />
-    <Compile Include="Activity\CandidateRemarkActivity.cs" />
-    <Compile Include="Activity\DashboardActivity.cs" />
+    <Compile Include="Activities\CandidateDetails.cs" />
+    <Compile Include="Activities\CandidateRemarkActivity.cs" />
+    <Compile Include="Activities\DashboardActivity.cs" />
     <Compile Include="helper\Helper.cs" />
     <Compile Include="helper\JavaHolder.cs" />
-    <Compile Include="Activity\MainActivity.cs" />
+    <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="helper\RecyclerViewAdapter.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Activity\SelectedActivity.cs" />
+    <Compile Include="Activities\SelectedActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -203,6 +205,22 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\halfRounded.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\TBDPage.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\RejectedPage.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_launcher.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

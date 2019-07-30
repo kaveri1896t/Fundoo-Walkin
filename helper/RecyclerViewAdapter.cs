@@ -22,9 +22,9 @@ namespace FundooWalkin
 
         public Filter Filter { get; private set; }
 
-        public RecyclerViewAdapter(Activity activity, IEnumerable<Candidate> cndidates)
+        public RecyclerViewAdapter(Activity activity, IEnumerable<Candidate> candidates)
         {
-            _items = cndidates.OrderBy(s => s.Name).ToList();
+            _items = candidates.OrderBy(s => s.Name).ToList();
             _context = activity;
 
             Filter = new CandidateFilter(this);
@@ -49,8 +49,10 @@ namespace FundooWalkin
 
             var candidate = _items[position];
 
-            vh.Image.SetImageResource(candidate.DrawableId);
-            vh.Caption.Text = candidate.Name;
+            vh.Name.Text = candidate.Name;
+            vh.Email.Text = candidate.Email;
+            vh.Location.Text = candidate.Location;
+            vh.Date.Text = candidate.Date;
         }
 
         public override int ItemCount
@@ -60,13 +62,20 @@ namespace FundooWalkin
 
         public class CandidateHolder : RecyclerView.ViewHolder
         {
-            public ImageView Image { get; private set; }
-            public TextView Caption { get; private set; }
+            //public ImageView Image { get; private set; }
+            public TextView Name { get; private set; }
+            public TextView Email { get; private set; }
+            public TextView Location { get; private set; }
+            public TextView Date { get; private set; }
 
             public CandidateHolder(View itemView) : base(itemView)
             {
-                Image = itemView.FindViewById<ImageView>(Resource.Id.emailImage);
-                Caption = itemView.FindViewById<TextView>(Resource.Id.emailtext);
+                //Image = itemView.FindViewById<ImageView>(Resource.Id.emailImage);
+
+                Name = itemView.FindViewById<TextView>(Resource.Id.nameText);
+                Email = itemView.FindViewById<TextView>(Resource.Id.emailtext);
+                Location = itemView.FindViewById<TextView>(Resource.Id.locationText);
+                Date = itemView.FindViewById<TextView>(Resource.Id.dateText);
             }
         }
 

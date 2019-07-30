@@ -5,13 +5,16 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Graphics;
+using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 
-namespace FundooWalkin
+namespace FundooWalkin.Activities
+
 {
     [Activity(Label = "CandidateRemarkActivity")]
     public class CandidateRemarkActivity : AppCompatActivity
@@ -24,9 +27,15 @@ namespace FundooWalkin
         private TextView txtCandidateStatus;
         protected override void OnCreate(Bundle savedInstanceState)
         {
+
+
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.RemarkCandidatePage);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+            ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF8C00"));
+            SupportActionBar.SetBackgroundDrawable(colorDrawable);
+
             SupportActionBar.Title = "Poonam Yadav";
 
             ////set the actions to the spinner
