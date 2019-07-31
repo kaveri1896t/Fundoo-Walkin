@@ -124,6 +124,7 @@ namespace FundooWalkin.Activities
         private void RejectedButton_OnClick(object sender, EventArgs e)
         {
             Toast.MakeText(this, "Reject button Clicked", ToastLength.Short).Show();
+            StartActivity(typeof(RejectedActivity));
         }
 
         /// <summary>
@@ -134,6 +135,7 @@ namespace FundooWalkin.Activities
         private void TBDButton_OnClick(object sender, EventArgs e)
         {
             Toast.MakeText(this, "TBD button Clicked", ToastLength.Short).Show();
+            StartActivity(typeof(TBDActivity));
         }
 
         /// <summary>

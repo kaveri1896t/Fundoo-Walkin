@@ -15,6 +15,7 @@ using Android.Support.V7.Widget;
 using Android.Text;
 using Android.Views;
 using Android.Widget;
+using FundooWalkin.helper;
 using EditText = Android.Widget.EditText;
 using SearchView = Android.Support.V7.Widget.SearchView;
 
@@ -24,10 +25,9 @@ namespace FundooWalkin.Activities
     [Activity(Label = "SelectedActivity")]
     public class SelectedActivity : AppCompatActivity
     {
-        EditText inputSearch;
-        TextView textView;
+       
         private SearchView _searchView;
-        private ListView _listView;
+      
         private RecyclerViewAdapter _adapter;
         private RecyclerView _recyclerView;
         RecyclerView.LayoutManager _LayoutManager;
@@ -37,18 +37,8 @@ namespace FundooWalkin.Activities
 
             // Create your application here
             SetContentView(Resource.Layout.SelectedPage);
-            Button btn = FindViewById<Button>(Resource.Id.btn1);
-            btn.Click += delegate { StartActivity(typeof(CandidateDetails)); };
-            //Toolbar toolbar = (Toolbar)FindViewById(Resource.Id.selectedtoolbar);
-            // SetSupportActionBar(toolbar);
-            //   SupportActionBar.SetDisplayHomeAsUpEnabled(true);
-            //toolbar.SetNavigationOnClickListener(arrow->onBackPressed());
-            //  toolbar.SetNavigationOnClickListener(View.IOnClickListener)
-            // toolbar.SetNavigationOnClickListener();
-            textView = FindViewById<TextView>(Resource.Id.text);
-            /*  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-              getSupportActionBar().setTitle("Home");
-              getSupportActionBar().setSubtitle("sairam");*/
+           
+           
           //  SupportActionBar.NavigationMode{ SetContentView(Resource.Layout.LoginPage); };
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.Title = "Selected";
@@ -56,9 +46,7 @@ namespace FundooWalkin.Activities
             ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF8C00"));
             SupportActionBar.SetBackgroundDrawable(colorDrawable);
 
-            /*  ColorDrawable colorDrawable = new ColorDrawable(Color.Orange);
-              ActionBar.SetBackgroundDrawable(colorDrawable);
-              SupportActionBar.SetBackgroundDrawable(colorDrawable);*/
+           
             _recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
             var products = new List<Candidate>
             {
@@ -73,17 +61,20 @@ namespace FundooWalkin.Activities
                 new Candidate {Name = "Kanchan Mehta", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
 
             };
-            /*   inputSearch = FindViewById<EditText>(Resource.Id.inputSearch);
-
-               inputSearch.TextChanged += InputSearch_TextChanged;
-               _listView = FindViewById<ListView>(Resource.Id.listview);*/
-            //_searchView = FindViewById<SearchView>(Resource.Id.searchView);
+           
             _adapter = new RecyclerViewAdapter(this, products);
+            _adapter.ItemClick += OnItemClick;
             _LayoutManager = new LinearLayoutManager(this);
             _recyclerView.SetLayoutManager(_LayoutManager);
-            _recyclerView.SetAdapter(_adapter);//
+            _recyclerView.SetAdapter(_adapter);
+            
            // _adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, products);
             //_listView.Adapter = _adapter;
+        }
+
+        private void OnItemClick(object sender, int e)
+        {
+            StartActivity(typeof(CandidateDetails));
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -126,23 +117,7 @@ namespace FundooWalkin.Activities
                 return true;
             }
         }
-        private void InputSearch_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-            Toast.MakeText(this, "searched", ToastLength.Short).Show();
-            /* //get the text from Edit Text            
-             var searchText = inputSearch.Text;
-
-             //Compare the entered text with List  
-             List<User> list = (from items in UserData.Users
-                                where items.Name.Contains(searchText) ||
-                                               items.Department.Contains(searchText) ||
-                                               items.Details.Contains(searchText)
-                                select items).ToList<User>();
-
-             // bind the result with adapter  
-             myList.Adapter = new MyCustomListAdapter(list);*/
-        }
+      
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)

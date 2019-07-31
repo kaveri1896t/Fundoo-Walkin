@@ -12,13 +12,14 @@ using Android.Views;
 using Android.Widget;
 using Java.Lang;
 
-namespace FundooWalkin
+namespace FundooWalkin.helper
 {
     class RecyclerViewAdapter : RecyclerView.Adapter, IFilterable
     {
         private List<Candidate> _originalData;
         private List<Candidate> _items;
         private readonly Activity _context;
+        public event EventHandler<int> ItemClick; 
 
         public Filter Filter { get; private set; }
 
@@ -39,8 +40,14 @@ namespace FundooWalkin
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.Candiate, parent, false);
-            CandidateHolder vh = new CandidateHolder(itemView);
+            CandidateHolder vh = new CandidateHolder(itemView,OnClick);
             return vh;
+        }
+
+        private void OnClick(int position)
+        {
+            if (ItemClick != null)
+                ItemClick(this, position);
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
@@ -53,12 +60,16 @@ namespace FundooWalkin
             vh.Email.Text = candidate.Email;
             vh.Location.Text = candidate.Location;
             vh.Date.Text = candidate.Date;
+
+
         }
 
         public override int ItemCount
         {
             get { return _items.Count; }
         }
+
+      
 
         public class CandidateHolder : RecyclerView.ViewHolder
         {
@@ -68,7 +79,7 @@ namespace FundooWalkin
             public TextView Location { get; private set; }
             public TextView Date { get; private set; }
 
-            public CandidateHolder(View itemView) : base(itemView)
+            public CandidateHolder(View itemView,Action<int> listner) : base(itemView)
             {
                 //Image = itemView.FindViewById<ImageView>(Resource.Id.emailImage);
 
@@ -76,6 +87,7 @@ namespace FundooWalkin
                 Email = itemView.FindViewById<TextView>(Resource.Id.emailtext);
                 Location = itemView.FindViewById<TextView>(Resource.Id.locationText);
                 Date = itemView.FindViewById<TextView>(Resource.Id.dateText);
+                itemView.Click += (sender, e) => listner(base.LayoutPosition);
             }
         }
 
@@ -102,7 +114,7 @@ namespace FundooWalkin
                     // It they are contained they are added to results.
                     results.AddRange(
                         _adapter._originalData.Where(
-                            chemical => chemical.Name.ToLower().Contains(constraint.ToString())));
+                            candidate => candidate.Name.ToLower().Contains(constraint.ToString())));
                 }
 
                 // Nasty piece of .NET to Java wrapping, be careful with this!

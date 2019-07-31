@@ -3,14 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp">
+    android:padding="6dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:background="@layout/Recycler_Rectangle">
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
@@ -18,19 +22,20 @@
                 android:textColor="@android:color/black"
                 android:textSize="18dp"
                 android:textStyle="bold"
-                android:layout_marginLeft="22dp"
+                android:layout_marginLeft="18dp"
                 android:id="@+id/nameText"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="10dp"
-                android:layout_marginLeft="120dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
                 android:textColor="@android:color/black"
                 android:id="@+id/dateText"
-                android:layout_alignParentRight="true"
+                 android:layout_alignParentRight="true"
                 android:background="@layout/rounded_lightGray"/>
-        </LinearLayout>
+        </RelativeLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,7 +48,7 @@
                     android:id="@+id/emailImage"
                     android:src="@drawable/emailoutline"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="18dp"
                     android:layout_width="12dp"
                     android:layout_height="15dp"
                     android:layout_marginRight="6dp"/>
@@ -57,13 +62,14 @@
              <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="6dp">
                     <ImageView
                         android:src="@drawable/locationimg"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_width="12dp"
-                        android:layout_height="15dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_width="17dp"
+                        android:layout_height="23dp"
                         android:layout_marginRight="6dp"
                         android:id="@+id/imageViewOnline"/>
                     <TextView
