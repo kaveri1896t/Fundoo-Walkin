@@ -15,6 +15,7 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 using FundooWalkin.helper;
+using Newtonsoft.Json;
 using SearchView = Android.Support.V7.Widget.SearchView;
 
 namespace FundooWalkin.Activities
@@ -22,8 +23,8 @@ namespace FundooWalkin.Activities
     [Activity(Label = "RejectedActivity")]
     public class RejectedActivity : AppCompatActivity
     {
+        List<Candidate> candidates;
         private SearchView _searchView;
-
         private RecyclerViewAdapter _adapter;
         private RecyclerView _recyclerView;
         RecyclerView.LayoutManager _LayoutManager;
@@ -69,8 +70,14 @@ namespace FundooWalkin.Activities
 
         private void OnItemClick(object sender, int e)
         {
-            StartActivity(typeof(CandidateDetails));
+            List<Candidate> item = candidates.OrderBy(s => s.Name).ToList();
+            var candidate = item[e];
+            Intent intent = new Intent(this, typeof(CandidateDetails));
+            intent.PutExtra("Candidate", JsonConvert.SerializeObject(candidate));
+            this.StartActivity(intent);
+
         }
+
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {

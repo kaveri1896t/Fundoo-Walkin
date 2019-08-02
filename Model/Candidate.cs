@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace FundooWalkin
 {
-    class Candidate
+    public class Candidate
     {
         public string Name { get; set; }
 
@@ -23,5 +23,7 @@ namespace FundooWalkin
         public string Location { get; set; }
 
         public string Date { get; set; }
+
+        public string  ReferredBy { get; set; }
     }
 }

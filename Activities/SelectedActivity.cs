@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using Newtonsoft.Json;
 using Android.App;
 using Android.Content;
 using Android.Graphics;
@@ -25,7 +25,7 @@ namespace FundooWalkin.Activities
     [Activity(Label = "SelectedActivity")]
     public class SelectedActivity : AppCompatActivity
     {
-       
+        List<Candidate> candidates;
         private SearchView _searchView;
       
         private RecyclerViewAdapter _adapter;
@@ -48,21 +48,21 @@ namespace FundooWalkin.Activities
 
            
             _recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
-            var products = new List<Candidate>
+             candidates = new List<Candidate>
             {
-                new Candidate {Name = "Poonam Yadav",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "Riya Patil", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "Teena Agrawal",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "Heena Chopra", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "Kanchan Mehta", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "Riya Patil", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "Teena Agrawal",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "Heena Chopra", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "Kanchan Mehta", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
+                new Candidate {Name = "Poonam Yadav",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Online"},
+                new Candidate {Name = "Riya Patil", Email="riyapatil@bridgelabz.com",Location="Pune",Date="26 March 19",ReferredBy="Email"},
+                new Candidate {Name = "Teena Agrawal",Email="teenaagrawal@bridgelabz.com",Location="Banglore",Date="24 March 19",ReferredBy="Online"},
+                new Candidate {Name = "Heena Chopra", Email="Heenachopra@bridgelabz.com",Location="Mumbai",Date="29 March 19",ReferredBy="Online"},
+                new Candidate {Name = "Kanchan Mehta", Email="Kanchanmehta@bridgelabz.com",Location="Mumbai",Date="21 March 19",ReferredBy="Online"},
+                new Candidate {Name = "Rohit Patel", Email="Rohitpatel@bridgelabz.com",Location="Pune",Date="22 March 19",ReferredBy="Email"},
+                new Candidate {Name = "Akshaj Patil",Email="Akshajpatil@bridgelabz.com",Location="Pune",Date="20 March 19",ReferredBy="Online"},
+                new Candidate {Name = "Heena Chopra", Email="Heenachopra@bridgelabz.com",Location="Mumbai",Date="25 March 19",ReferredBy="Online"},
+                new Candidate {Name = "Rakesh Mehta", Email="Rakeshmehta@bridgelabz.com",Location="Pune",Date="23 March 19",ReferredBy="Online"},
 
             };
            
-            _adapter = new RecyclerViewAdapter(this, products);
+            _adapter = new RecyclerViewAdapter(this, candidates);
             _adapter.ItemClick += OnItemClick;
             _LayoutManager = new LinearLayoutManager(this);
             _recyclerView.SetLayoutManager(_LayoutManager);
@@ -74,7 +74,13 @@ namespace FundooWalkin.Activities
 
         private void OnItemClick(object sender, int e)
         {
-            StartActivity(typeof(CandidateDetails));
+           // RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, candidates);
+            List<Candidate> item= candidates.OrderBy(s => s.Name).ToList();
+            var candidate = item[e];
+            Intent intent = new Intent(this, typeof(CandidateDetails));
+            intent.PutExtra("Candidate",JsonConvert.SerializeObject(candidate));
+            this.StartActivity(intent);
+           // StartActivity(typeof(CandidateDetails(candidate)));
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

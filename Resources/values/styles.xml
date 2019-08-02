@@ -19,6 +19,7 @@
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     <item name="colorAccent">@color/colorAccent</item>
     <item name="android:statusBarColor">@color/SmokeWhite</item>
+    <item name="android:windowLightStatusBar">true</item>
   </style>
   <style name="MyTheme" parent="@android:style/Theme.Holo.Light">
     <item name="android:actionBarStyle">@style/MyTheme.ActionBarStyle</item>

@@ -19,7 +19,9 @@ namespace FundooWalkin.helper
         private List<Candidate> _originalData;
         private List<Candidate> _items;
         private readonly Activity _context;
-        public event EventHandler<int> ItemClick; 
+        public event EventHandler<int> ItemClick;
+       
+
 
         public Filter Filter { get; private set; }
 
@@ -72,7 +74,7 @@ namespace FundooWalkin.helper
       
 
         public class CandidateHolder : RecyclerView.ViewHolder
-        {
+        { 
             //public ImageView Image { get; private set; }
             public TextView Name { get; private set; }
             public TextView Email { get; private set; }

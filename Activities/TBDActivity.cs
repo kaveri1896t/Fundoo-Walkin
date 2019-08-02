@@ -15,6 +15,7 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 using FundooWalkin.helper;
+using Newtonsoft.Json;
 using SearchView = Android.Support.V7.Widget.SearchView;
 
 namespace FundooWalkin.Activities
@@ -22,8 +23,8 @@ namespace FundooWalkin.Activities
     [Activity(Label = "TBDActivity")]
     public class TBDActivity : AppCompatActivity
     {
+        List<Candidate> candidates;
         private SearchView _searchView;
-
         private RecyclerViewAdapter _adapter;
         private RecyclerView _recyclerView;
         RecyclerView.LayoutManager _LayoutManager;
@@ -47,17 +48,17 @@ namespace FundooWalkin.Activities
             _recyclerView = FindViewById<RecyclerView>(Resource.Id.TBDrecyclerView);
             var products = new List<Candidate>
             {
-                new Candidate {Name = "Pooja Mehtre",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "Priyanka Patil", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "Shubham Agrawal",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "Tanuja Nadaf", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "Priyanka Salunkhe", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "Sachin Mishra", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "Divya Rane",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "Shraddha Kandi", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "Nipun Shaha", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "Prajakta Shaha", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "Ashwin Shaha", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
+                new Candidate {Name = "Pooja Mehtre",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
+                new Candidate {Name = "Priyanka Patil", Email="Priyankapatil@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
+                new Candidate {Name = "Shubham Agrawal",Email="Shubhamagrawal@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Online"},
+                new Candidate {Name = "Tanuja Nadaf", Email="Tanujanadaf@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Online"},
+                new Candidate {Name = "Priyanka Salunkhe", Email="Priyankasalunkhe@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Online"},
+                new Candidate {Name = "Sachin Mishra", Email="Sachinmishra@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
+                new Candidate {Name = "Divya Rane",Email="Divyarane@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
+                new Candidate {Name = "Shraddha Kandi", Email="Shraddhakandi@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Online"},
+                new Candidate {Name = "Nipun Shaha", Email="Nipunshaha@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Online"},
+                new Candidate {Name = "Prajakta Shaha", Email="Prajaktashaha@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
+                new Candidate {Name = "Ashwin Shaha", Email="Ashwinshaha@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
 
             };
 
@@ -70,7 +71,11 @@ namespace FundooWalkin.Activities
 
         private void OnItemClick(object sender, int e)
         {
-            StartActivity(typeof(CandidateDetails));
+            List<Candidate> item = candidates.OrderBy(s => s.Name).ToList();
+            var candidate = item[e];
+            Intent intent = new Intent(this, typeof(CandidateDetails));
+            intent.PutExtra("Candidate", JsonConvert.SerializeObject(candidate));
+            this.StartActivity(intent);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

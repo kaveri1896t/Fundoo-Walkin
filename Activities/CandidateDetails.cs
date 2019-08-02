@@ -12,7 +12,7 @@ using Android.Runtime;
 using Android.Support.V4.App;
 using Android.Support.V7.App;
 using Android.Views;
-
+using Newtonsoft.Json;
 using Android.Widget;
 
 namespace FundooWalkin.Activities
@@ -21,6 +21,7 @@ namespace FundooWalkin.Activities
     [Activity(Label = "CandidateDetails")]
     public class CandidateDetails : AppCompatActivity
     {
+        Candidate candidate;
         TextView nameText;
         TextView dateText;
         TextView emailText;
@@ -36,6 +37,10 @@ namespace FundooWalkin.Activities
         Button cancel;
         Button edit;
        
+       /* public CandidateDetails(Candidate candidate)
+        {
+            this.candidate = candidate;
+        }*/
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -43,6 +48,8 @@ namespace FundooWalkin.Activities
             // Create your application here
 
             SetContentView(Resource.Layout.CandidateDetails);
+
+            candidate = JsonConvert.DeserializeObject<Candidate>(Intent.GetStringExtra("Candidate"));
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF8C00"));
             //ActionBar.SetBackgroundDrawable(colorDrawable);
@@ -53,16 +60,19 @@ namespace FundooWalkin.Activities
             // nameText=FindViewById<TextView>(Resource.Id)
 
             nameText = FindViewById<TextView>(Resource.Id.nameText);
-            nameText.Text = "Poonam Yadav";
+            // nameText.Text = "Poonam Yadav";
+            nameText.Text = candidate.Name;
             dateText = FindViewById<TextView>(Resource.Id.dateText);
-            dateText.Text = "22 March 19";
+            // dateText.Text = "22 March 19";
+            dateText.Text = candidate.Date;
 
             emailText = FindViewById<TextView>(Resource.Id.emailText);
-            emailText.Text = "Poonamyadav@bridgelabz.com";
+            // emailText.Text = "Poonamyadav@bridgelabz.com";
+            emailText.Text = candidate.Email;
             onlineText = FindViewById<TextView>(Resource.Id.onlineText);
-            onlineText.Text = "Online";
+            onlineText.Text = candidate.ReferredBy;
             locationText = FindViewById<TextView>(Resource.Id.locationText);
-            locationText.Text = "Mumbai";
+            locationText.Text = candidate.Location;
 
             attitude = FindViewById<TextView>(Resource.Id.attitudeText);
             attitude.Text = "OK";
