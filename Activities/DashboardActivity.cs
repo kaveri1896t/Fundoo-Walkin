@@ -5,15 +5,19 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
-using SearchView = Android.Widget.SearchView;
+using FundooWalkin.Model;
+using SearchView = Android.Support.V7.Widget.SearchView;
+using FundooWalkin.helper;
+using Android.Support.V4.View;
 
-namespace FundooWalkin
+namespace FundooWalkin.Activities
 {
     /// <summary>
     /// Dashboard showing the candidates selected, to be determined and rejected 
@@ -28,14 +32,16 @@ namespace FundooWalkin
         private Button TBDButton;
         private Button RejectedButton;
         private TextView TxtViewCurrentDate;
-        //private LinearLayout EveryDayLinearLayout;
         private SearchView searchView;
-        //private ListView candidateList;
         private LinearLayout statusLayout;
         private TextView TxtCandidateOne;
         private TextView TxtCandidateTwo;
         private TextView TxtTimeOne;
         private TextView TxtTimeOne1;
+        private RecyclerView recycler;
+        private RecyclerViewAdapter _adapter;
+        //private RecyclerView.LayoutManager _LayoutManager;
+
 
         /// <summary>
         /// Overriding on create method of activity to custumize the dashboard behaviour
@@ -88,15 +94,11 @@ namespace FundooWalkin
 
             ////set the actions to the search view
             this.searchView = FindViewById<SearchView>(Resource.Id.CandidateSearchView);
-            this.searchView.SetVerticalGravity(GravityFlags.Bottom);
-
-            ////set the candidate status in the list view
-            /*candidateList = FindViewById<ListView>(Resource.Id.CandidateStatus);
-            string[] candidates = new string[]{ "abc", "def", "ghi" };
-            candidateList.Adapter = new ArrayAdapter(this, Android.Resource.Layout.SimpleListItem1, candidates);*/
+            this.searchView.SetIconifiedByDefault(false);
+            this.searchView.SetQuery("Search Candidate", false);
 
             ////set the status layout
-            this.statusLayout = FindViewById<LinearLayout>(Resource.Id.EveryDayLayout);
+            this.statusLayout = FindViewById<LinearLayout>(Resource.Id.EveryDayLayout);  
 
             ////set the candidate status 
             this.TxtCandidateOne = FindViewById<TextView>(Resource.Id.TxtCandidate1);
@@ -114,6 +116,67 @@ namespace FundooWalkin
             this.TxtTimeOne1 = FindViewById<TextView>(Resource.Id.TxtTime1);
             this.TxtTimeOne1.Text = "1:25 PM";
 
+            ////set the candidate recycler view 
+            this.recycler = FindViewById<RecyclerView>(Resource.Id.dashboardRecyclerView);
+            var products = new List<Candidate>
+           {
+               new Candidate {Name = "Poonam Yadav",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
+               new Candidate {Name = "Riya Patil", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
+               new Candidate {Name = "Teena Agrawal",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
+               new Candidate {Name = "Heena Chopra", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
+               new Candidate {Name = "Kanchan Mehta", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
+               new Candidate {Name = "Riya Patil", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
+               new Candidate {Name = "Teena Agrawal",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
+               new Candidate {Name = "Heena Chopra", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
+               new Candidate {Name = "Kanchan Mehta", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""}
+            };
+
+            
+            ////add adapter to the recycler view
+            this._adapter = new RecyclerViewAdapter(this, products);
+            LinearLayoutManager _LayoutManager = new LinearLayoutManager(this, LinearLayoutManager.Horizontal, false);
+            this.recycler.SetLayoutManager(_LayoutManager);
+            this.recycler.SetAdapter(this._adapter);
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            //return base.OnCreateOptionsMenu(menu);
+            MenuInflater.Inflate(Resource.Menu.main, menu);
+            var item = menu.FindItem(Resource.Id.action_search);
+            var searchview1 = MenuItemCompat.GetActionView(item);
+            this.searchView = searchview1.JavaCast<SearchView>();
+
+            this.searchView.QueryTextChange += (s, e) => _adapter.Filter.InvokeFilter(e.NewText);
+            this.searchView.QueryTextSubmit += (s, e) =>
+            {
+                Toast.MakeText(this, "Search for :", ToastLength.Short).Show();
+                e.Handled = true;
+            };
+
+            MenuItemCompat.SetOnActionExpandListener(item, new SearchViewExpandListener(this._adapter));
+            return true;
+        }
+
+        public class SearchViewExpandListener : Java.Lang.Object, MenuItemCompat.IOnActionExpandListener
+        {
+            private readonly IFilterable _adapter;
+
+            public SearchViewExpandListener(IFilterable adapter)
+            {
+                _adapter = adapter;
+            }
+
+            public bool OnMenuItemActionCollapse(IMenuItem item)
+            {
+                _adapter.Filter.InvokeFilter("");
+                return true;
+            }
+
+            public bool OnMenuItemActionExpand(IMenuItem item)
+            {
+                return true;
+            }
         }
 
         /// <summary>
@@ -226,6 +289,19 @@ namespace FundooWalkin
                 //// Note: monthOfYear is a value between 0 and 11, not 1 and 12!  
                 DateTime selectedDate = new DateTime(year, monthOfYear + 1, dayOfMonth);
                 _dateSelectedHandler(selectedDate);
+            }
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Android.Resource.Id.Home:
+                    Finish();
+                    return true;
+
+                default:
+                    return base.OnOptionsItemSelected(item);
             }
         }
     }

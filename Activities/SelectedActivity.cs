@@ -18,7 +18,7 @@ using Android.Widget;
 using EditText = Android.Widget.EditText;
 using SearchView = Android.Support.V7.Widget.SearchView;
 
-namespace FundooWalkin
+namespace FundooWalkin.Activities
 {
     [Activity(Label = "SelectedActivity")]
     public class SelectedActivity : AppCompatActivity
@@ -144,6 +144,6 @@ namespace FundooWalkin
                 default:
                     return base.OnOptionsItemSelected(item);
             }
-        }
+         }
     }
 }

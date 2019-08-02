@@ -13,7 +13,7 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 
-namespace FundooWalkin
+namespace FundooWalkin.Activities
 {
     [Activity(Label = "CandidateRemarkActivity")]
     public class CandidateRemarkActivity : AppCompatActivity

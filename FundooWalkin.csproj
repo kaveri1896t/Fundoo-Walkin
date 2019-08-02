@@ -59,17 +59,17 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Candidate.cs" />
-    <Compile Include="CandidateDetails.cs" />
-    <Compile Include="CandidateRemarkActivity.cs" />
-    <Compile Include="DashboardActivity.cs" />
+    <Compile Include="Model\Candidate.cs" />
+    <Compile Include="Activities\CandidateDetails.cs" />
+    <Compile Include="Activities\CandidateRemarkActivity.cs" />
+    <Compile Include="Activities\DashboardActivity.cs" />
     <Compile Include="helper\Helper.cs" />
-    <Compile Include="JavaHolder.cs" />
-    <Compile Include="MainActivity.cs" />
-    <Compile Include="RecyclerViewAdapter.cs" />
+    <Compile Include="helper\JavaHolder.cs" />
+    <Compile Include="Activities\MainActivity.cs" />
+    <Compile Include="helper\RecyclerViewAdapter.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SelectedActivity.cs" />
+    <Compile Include="Activities\SelectedActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -209,6 +209,23 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\EditCandidateDetails.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Recycler_Rectangle.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_event_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\rectangle_SearchView.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_room_24px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
