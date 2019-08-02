@@ -11,8 +11,10 @@ using System.Text.RegularExpressions;
 
 namespace FundooWalkin.Activities
 
+
 {
     [Activity(Label = "@string/app_name", Theme = "@style/NoActionBarThemeForLogin", MainLauncher = true)]
+
     public class MainActivity : AppCompatActivity
     {
 

@@ -12,7 +12,9 @@ using Android.Widget;
 
 namespace FundooWalkin.helper
 {
+
     class JavaHolder : Java.Lang.Object
+
     {
         public readonly object Instance;
 

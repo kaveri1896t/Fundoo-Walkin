@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using System.Text;
 
 using Android.App;
@@ -10,6 +11,7 @@ using Android.Runtime;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+
 using Java.Lang;
 
 namespace FundooWalkin.helper
@@ -20,9 +22,6 @@ namespace FundooWalkin.helper
         private List<Candidate> _items;
         private readonly Activity _context;
         public event EventHandler<int> ItemClick;
-       
-
-
         public Filter Filter { get; private set; }
 
         public RecyclerViewAdapter(Activity activity, IEnumerable<Candidate> candidates)
@@ -42,7 +41,8 @@ namespace FundooWalkin.helper
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.Candiate, parent, false);
-            CandidateHolder vh = new CandidateHolder(itemView,OnClick);
+CandidateHolder vh = new CandidateHolder(itemView,OnClick);
+
             return vh;
         }
 
@@ -63,7 +63,6 @@ namespace FundooWalkin.helper
             vh.Location.Text = candidate.Location;
             vh.Date.Text = candidate.Date;
 
-
         }
 
         public override int ItemCount
@@ -71,17 +70,17 @@ namespace FundooWalkin.helper
             get { return _items.Count; }
         }
 
-      
-
-        public class CandidateHolder : RecyclerView.ViewHolder
+public class CandidateHolder : RecyclerView.ViewHolder
         { 
+
             //public ImageView Image { get; private set; }
             public TextView Name { get; private set; }
             public TextView Email { get; private set; }
             public TextView Location { get; private set; }
             public TextView Date { get; private set; }
 
-            public CandidateHolder(View itemView,Action<int> listner) : base(itemView)
+public CandidateHolder(View itemView,Action<int> listner) : base(itemView)
+
             {
                 //Image = itemView.FindViewById<ImageView>(Resource.Id.emailImage);
 
@@ -89,13 +88,17 @@ namespace FundooWalkin.helper
                 Email = itemView.FindViewById<TextView>(Resource.Id.emailtext);
                 Location = itemView.FindViewById<TextView>(Resource.Id.locationText);
                 Date = itemView.FindViewById<TextView>(Resource.Id.dateText);
+
                 itemView.Click += (sender, e) => listner(base.LayoutPosition);
+
             }
         }
 
         private class CandidateFilter : Filter
         {
+
             private readonly RecyclerViewAdapter _adapter;
+
             public CandidateFilter(RecyclerViewAdapter adapter)
             {
                 _adapter = adapter;

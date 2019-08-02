@@ -3,22 +3,27 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+
     android:padding="6dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginLeft="6dp"
+
         android:layout_marginRight="6dp"
         android:background="@layout/Recycler_Rectangle">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+
             android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
 
                 android:textColor="@android:color/black"
                 android:textSize="18dp"
@@ -26,15 +31,18 @@
                 android:layout_marginLeft="18dp"
                 android:id="@+id/nameText"/>
 
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="10dp"
+
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="8dp"
                 android:textColor="@android:color/black"
                 android:id="@+id/dateText"
                  android:layout_alignParentRight="true"
+
                 android:background="@layout/rounded_lightGray"/>
         </RelativeLayout>
         <LinearLayout
@@ -49,7 +57,9 @@
                     android:id="@+id/emailImage"
                     android:src="@drawable/emailoutline"
                     android:layout_marginTop="10dp"
+
                     android:layout_marginLeft="18dp"
+
                     android:layout_width="12dp"
                     android:layout_height="15dp"
                     android:layout_marginRight="6dp"/>
@@ -60,6 +70,7 @@
                     android:layout_toRightOf="@+id/emailImage"
                     android:layout_marginTop="6dp"/>
             </LinearLayout>
+
              <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -79,6 +90,7 @@
                         android:layout_marginTop="6dp"
                         android:id="@+id/locationText"/>
                 </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>

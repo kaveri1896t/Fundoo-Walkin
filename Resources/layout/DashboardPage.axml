@@ -15,45 +15,45 @@
             android:orientation="vertical"
             android:layout_gravity="center"
             android:background="@layout/halfRounded">
+
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="viewEnd"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
                 android:id="@+id/FirstLinear"
                 android:layout_above="@+id/SecondLinear">
                 <ImageView
                     android:src="@drawable/locationimg"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="20dp"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:layout_marginBottom="20dp"
                     android:id="@+id/imageView1"/>
 
                 <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="95dp"
-                    android:layout_marginBottom="20dp"
                     android:gravity="start"
                     android:id="@+id/spinnerLocation"
-                    android:background="#FF7619"
-            />
+
+                    android:background="#FF8C00"/>
+                 
+
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:textColor="@android:color/white"
+                    android:textColor="#FF7619"
                     android:background="@layout/rounded_blue"
-                    android:drawableRight="@android:drawable/ic_menu_my_calendar"
+                    android:drawableRight="@drawable/ic_event_24px"
                     android:id="@+id/BtnCalendar"
-                    android:layout_marginTop="10dp"
+                    android:gravity="center"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="10dp"
-                    android:layout_marginBottom="20dp"
-            />
+                    />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="320dp"
@@ -156,20 +156,31 @@
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:id="@+id/searchViewWrapper"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         >
-        <SearchView
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/dashboardRecyclerView"
+            android:scrollbars="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:iconifiedByDefault="false"
-            android:queryHint="Search Candidate"
-            android:id="@+id/CandidateSearchView"
+            android:layout_height="100dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"/>
+
+        <android.support.v7.widget.SearchView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/CandidateSearchView"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@layout/rectangle_SearchView"
+            />
     </LinearLayout>
 
 </RelativeLayout>

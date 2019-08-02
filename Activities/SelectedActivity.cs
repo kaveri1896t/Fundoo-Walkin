@@ -2,20 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
+
 using Newtonsoft.Json;
+
+
 using Android.App;
 using Android.Content;
 using Android.Graphics;
 using Android.Graphics.Drawables;
+
+
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V4.View;
 using Android.Support.V7.App;
+
+
 using Android.Support.V7.Widget;
 using Android.Text;
 using Android.Views;
 using Android.Widget;
 using FundooWalkin.helper;
+
+
 using EditText = Android.Widget.EditText;
 using SearchView = Android.Support.V7.Widget.SearchView;
 
@@ -25,18 +35,21 @@ namespace FundooWalkin.Activities
     [Activity(Label = "SelectedActivity")]
     public class SelectedActivity : AppCompatActivity
     {
+
         List<Candidate> candidates;
         private SearchView _searchView;
       
         private RecyclerViewAdapter _adapter;
         private RecyclerView _recyclerView;
         RecyclerView.LayoutManager _LayoutManager;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             // Create your application here
             SetContentView(Resource.Layout.SelectedPage);
+
            
            
           //  SupportActionBar.NavigationMode{ SetContentView(Resource.Layout.LoginPage); };
@@ -83,6 +96,7 @@ namespace FundooWalkin.Activities
            // StartActivity(typeof(CandidateDetails(candidate)));
         }
 
+
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             //return base.OnCreateOptionsMenu(menu);
@@ -123,7 +137,7 @@ namespace FundooWalkin.Activities
                 return true;
             }
         }
-      
+
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)
@@ -135,6 +149,8 @@ namespace FundooWalkin.Activities
                 default:
                     return base.OnOptionsItemSelected(item);
             }
-        }
+
+         }
+
     }
 }

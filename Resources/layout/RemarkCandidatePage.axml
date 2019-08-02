@@ -29,7 +29,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     android:id="@+id/TxtCandidateEmail"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="10dp"
@@ -52,7 +52,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     android:id="@+id/TxtCandidateLocation"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="10dp"
@@ -75,7 +75,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     android:id="@+id/TxtCandidateStatus"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="10dp"
@@ -111,8 +111,8 @@
                 android:id="@+id/TxtAttitude"
                 android:textColor="@android:color/black"
                 android:textSize="14dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="30dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"/>
             <TextView
@@ -122,8 +122,8 @@
                 android:id="@+id/TxtCommunication"
                 android:textColor="@android:color/black"
                 android:textSize="14dp"
-                android:layout_marginLeft="25dp"
-                android:layout_marginRight="25dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"/>
             <TextView
@@ -133,7 +133,7 @@
                 android:id="@+id/TxtKnowledge"
                 android:textColor="@android:color/black"
                 android:textSize="14dp"
-                android:layout_marginLeft="25dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"/>
@@ -149,8 +149,9 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="7dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 android:textAlignment="center"
+                android:background="@layout/rectangle_EditText"
                 android:id="@+id/SpinnerAttitude" />
             <Spinner
                 android:layout_width="105dp"
@@ -158,18 +159,20 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="7dp"
                 android:layout_marginRight="5dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 android:textAlignment="center"
-            android:id="@+id/SpinnerCommunication"/>
+                android:background="@layout/rectangle_EditText"
+                android:id="@+id/SpinnerCommunication"/>
             <Spinner
                 android:layout_width="105dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="10dp"
                 android:textAlignment="center"
-            android:id="@+id/SpinnerKnowledge"/>
+        android:background="@layout/rectangle_EditText"
+                android:id="@+id/SpinnerKnowledge"/>
 
         </LinearLayout>
         <LinearLayout
@@ -204,7 +207,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Selected"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp"
@@ -213,7 +216,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TBD"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginBottom="10dp"
@@ -222,12 +225,70 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rejected"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="10dp"
                     android:id="@+id/BtnRadioRejected" />
             </RadioGroup>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/TxtRemarks"
+                android:text="REMARKS:"
+                android:textColor="@android:color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:background="@layout/rectangle_EditText">
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:id="@+id/EditTxtRemarks"
+                android:background="@null"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:textColor="@android:color/black"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/ButtonLayout">
+        <Button
+            android:layout_width="98dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="142dp"
+            android:id="@+id/BtnCancel"
+            android:text="Cancel"
+            android:background="@layout/rounded_uncolorBtn"/>
+        <Button
+            android:layout_width="98dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/BtnSave"
+            android:text="Save"
+            android:background="@layout/rounded_uncolorBtn"/>
     </LinearLayout>
 </RelativeLayout>
+ 

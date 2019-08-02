@@ -212,6 +212,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Selected"
+                        android:checked="false"
                         android:layout_marginLeft="7dp"
                         android:paddingRight="10dp"/>
                     <RadioButton
@@ -219,6 +220,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
+                        android:checked="true"
                         android:text="TBD"
                         android:paddingRight="10dp"/>
                     <RadioButton
@@ -226,6 +228,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Rejected"
+                        android:checked="false"
                         android:layout_marginLeft="33dp"
                         android:paddingRight="10dp"/>
                 </RadioGroup>
@@ -268,8 +271,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="135dp"
+
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="15dp"
+
             android:id="@+id/fifthLayout">
             <Button
                 android:layout_width="98dp"
@@ -277,7 +282,7 @@
                 android:layout_marginLeft="142dp"
                 android:id="@+id/cancelBtn"
                 android:text="Cancel"
-                android:background="@layout/rounded_uncolorBtn"/>
+            android:background="@layout/rounded_uncolorBtn"/>
             <Button
                 android:layout_width="98dp"
                 android:layout_height="wrap_content"
@@ -286,5 +291,7 @@
                 android:text="Edit"
                 android:background="@layout/rounded_uncolorBtn"/>
         </LinearLayout>
+
     </RelativeLayout>
+
 

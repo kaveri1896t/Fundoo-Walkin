@@ -12,16 +12,20 @@ using Android.Runtime;
 using Android.Support.V4.App;
 using Android.Support.V7.App;
 using Android.Views;
+
 using Newtonsoft.Json;
 using Android.Widget;
 
 namespace FundooWalkin.Activities
-
 {
     [Activity(Label = "CandidateDetails")]
     public class CandidateDetails : AppCompatActivity
     {
+
+
         Candidate candidate;
+
+
         TextView nameText;
         TextView dateText;
         TextView emailText;
@@ -36,14 +40,20 @@ namespace FundooWalkin.Activities
         TextView remarkText;
         Button cancel;
         Button edit;
+
+
        
        /* public CandidateDetails(Candidate candidate)
         {
             this.candidate = candidate;
         }*/
+
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+
 
             // Create your application here
 
@@ -54,12 +64,16 @@ namespace FundooWalkin.Activities
             ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF8C00"));
             //ActionBar.SetBackgroundDrawable(colorDrawable);
             SupportActionBar.SetBackgroundDrawable(colorDrawable);
+
+
             //SupportActionBar.SetDisplayShowCustomEnabled(true);
             SupportActionBar.Title = "CANDIDATE DETAILS";
             //SupportActionBar.NavigationMode { SetContentView(Resource.Layout.SelectedPage) };
             // nameText=FindViewById<TextView>(Resource.Id)
 
             nameText = FindViewById<TextView>(Resource.Id.nameText);
+
+
             // nameText.Text = "Poonam Yadav";
             nameText.Text = candidate.Name;
             dateText = FindViewById<TextView>(Resource.Id.dateText);
@@ -74,6 +88,7 @@ namespace FundooWalkin.Activities
             locationText = FindViewById<TextView>(Resource.Id.locationText);
             locationText.Text = candidate.Location;
 
+
             attitude = FindViewById<TextView>(Resource.Id.attitudeText);
             attitude.Text = "OK";
             communication = FindViewById<TextView>(Resource.Id.communicationText);
@@ -82,25 +97,25 @@ namespace FundooWalkin.Activities
             knowledge.Text = "Good";
 
             selected = FindViewById<RadioButton>(Resource.Id.rb_selected);
-           
+
+
             //selected.Click += selectedClicked;
             TBD = FindViewById<RadioButton>(Resource.Id.rb_tbd);
 
            
-            
-            
 
-
-           // TBD.Click += Tbdclicked;
+// TBD.Click += Tbdclicked;
             rejected = FindViewById<RadioButton>(Resource.Id.rb_rejected);
             // rejected.Click += rejectedClicked;
           
+
+
             if(selected.Checked=true)
             {
                 TBD.Checked = false;
                 rejected.Checked = false;
             }
-           
+
 
             remarkText = FindViewById<TextView>(Resource.Id.remarkText);
             remarkText.Text = "remark will be displayed here...";

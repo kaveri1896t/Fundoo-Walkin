@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
+
 namespace FundooWalkin
 {
     public class Candidate
@@ -18,12 +19,15 @@ namespace FundooWalkin
 
        // public int DrawableId { get; set; }
 
+
         public string Email { get; set; }
 
         public string Location { get; set; }
 
         public string Date { get; set; }
 
+
         public string  ReferredBy { get; set; }
+
     }
 }
