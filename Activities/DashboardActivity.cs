@@ -5,42 +5,61 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+
+
 using Android.Graphics;
+
+
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+
+
 using FundooWalkin.Model;
 using SearchView = Android.Support.V7.Widget.SearchView;
 using FundooWalkin.helper;
 using Android.Support.V4.View;
 
 namespace FundooWalkin.Activities
+
+
 {
     /// <summary>
     /// Dashboard showing the candidates selected, to be determined and rejected 
     /// </summary>
+
+
     [Activity(Label = "DashboardActivity", Theme = "@style/NoActionBarTheme")]
     public class DashboardActivity : AppCompatActivity
     {
         private DateTime currentDate; 
+
+
         private Button _dateSelectButton;
         private Spinner spinner;
         private Button SelectedButton;
         private Button TBDButton;
         private Button RejectedButton;
         private TextView TxtViewCurrentDate;
+
+
         private SearchView searchView;
+
+
         private LinearLayout statusLayout;
         private TextView TxtCandidateOne;
         private TextView TxtCandidateTwo;
         private TextView TxtTimeOne;
         private TextView TxtTimeOne1;
+
+
         private RecyclerView recycler;
         private RecyclerViewAdapter _adapter;
         //private RecyclerView.LayoutManager _LayoutManager;
+
 
 
         /// <summary>
@@ -56,7 +75,7 @@ namespace FundooWalkin.Activities
             //// Set our view from the "DashboardPage" layout resource
             SetContentView(Resource.Layout.DashboardPage);
 
-            ////set status bar color to orange
+
             Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
 
             ////Set the actions to the date picker
@@ -65,6 +84,8 @@ namespace FundooWalkin.Activities
             this._dateSelectButton.Text = currentDate.ToShortDateString();
 
             ////set the actions to the spinner
+
+
             this.spinner = FindViewById<Spinner>(Resource.Id.spinnerLocation);
             this.spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
             var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.LocationArray, Android.Resource.Layout.SimpleSpinnerItem);
@@ -94,11 +115,15 @@ namespace FundooWalkin.Activities
 
             ////set the actions to the search view
             this.searchView = FindViewById<SearchView>(Resource.Id.CandidateSearchView);
+
+
             this.searchView.SetIconifiedByDefault(false);
             this.searchView.SetQuery("Search Candidate", false);
 
             ////set the status layout
             this.statusLayout = FindViewById<LinearLayout>(Resource.Id.EveryDayLayout);  
+
+
 
             ////set the candidate status 
             this.TxtCandidateOne = FindViewById<TextView>(Resource.Id.TxtCandidate1);
@@ -115,6 +140,7 @@ namespace FundooWalkin.Activities
             ////set the time when the candidate status is displayed
             this.TxtTimeOne1 = FindViewById<TextView>(Resource.Id.TxtTime1);
             this.TxtTimeOne1.Text = "1:25 PM";
+
 
             ////set the candidate recycler view 
             this.recycler = FindViewById<RecyclerView>(Resource.Id.dashboardRecyclerView);
@@ -177,6 +203,8 @@ namespace FundooWalkin.Activities
             {
                 return true;
             }
+
+
         }
 
         /// <summary>
@@ -187,6 +215,11 @@ namespace FundooWalkin.Activities
         private void RejectedButton_OnClick(object sender, EventArgs e)
         {
             Toast.MakeText(this, "Reject button Clicked", ToastLength.Short).Show();
+
+
+            StartActivity(typeof(RejectedActivity));
+
+
         }
 
         /// <summary>
@@ -197,6 +230,11 @@ namespace FundooWalkin.Activities
         private void TBDButton_OnClick(object sender, EventArgs e)
         {
             Toast.MakeText(this, "TBD button Clicked", ToastLength.Short).Show();
+
+
+            StartActivity(typeof(TBDActivity));
+
+
         }
 
         /// <summary>
@@ -292,6 +330,8 @@ namespace FundooWalkin.Activities
             }
         }
 
+
+
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)
@@ -304,5 +344,7 @@ namespace FundooWalkin.Activities
                     return base.OnOptionsItemSelected(item);
             }
         }
+
+
     }
 }

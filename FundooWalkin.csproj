@@ -59,6 +59,10 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+
+    <Compile Include="Activities\RejectedActivity.cs" />
+    <Compile Include="Activities\TBDActivity.cs" />
+
     <Compile Include="Model\Candidate.cs" />
     <Compile Include="Activities\CandidateDetails.cs" />
     <Compile Include="Activities\CandidateRemarkActivity.cs" />
@@ -205,6 +209,7 @@
     <AndroidResource Include="Resources\layout\halfRounded.xml" />
   </ItemGroup>
   <ItemGroup>
+
     <AndroidResource Include="Resources\layout\rectangle_EditText.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -212,6 +217,20 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\EditCandidateDetails.axml">
+
+    <AndroidResource Include="Resources\layout\TBDPage.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\RejectedPage.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_launcher.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -219,6 +238,7 @@
     <AndroidResource Include="Resources\layout\Recycler_Rectangle.xml" />
   </ItemGroup>
   <ItemGroup>
+
     <AndroidResource Include="Resources\drawable\ic_event_24px.png" />
   </ItemGroup>
   <ItemGroup>
@@ -226,6 +246,15 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_room_24px.png" />
+
+    <AndroidResource Include="Resources\drawable\location_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Browser_White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Mail_White.png" />
+
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

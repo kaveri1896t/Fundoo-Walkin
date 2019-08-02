@@ -3,97 +3,79 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-
-using Newtonsoft.Json;
-
-
 using Android.App;
 using Android.Content;
 using Android.Graphics;
 using Android.Graphics.Drawables;
-
-
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V4.View;
 using Android.Support.V7.App;
-
-
 using Android.Support.V7.Widget;
-using Android.Text;
 using Android.Views;
 using Android.Widget;
 using FundooWalkin.helper;
-
-
-using EditText = Android.Widget.EditText;
+using Newtonsoft.Json;
 using SearchView = Android.Support.V7.Widget.SearchView;
 
 namespace FundooWalkin.Activities
-
 {
-    [Activity(Label = "SelectedActivity")]
-    public class SelectedActivity : AppCompatActivity
+    [Activity(Label = "RejectedActivity")]
+    public class RejectedActivity : AppCompatActivity
     {
-
         List<Candidate> candidates;
         private SearchView _searchView;
-      
         private RecyclerViewAdapter _adapter;
         private RecyclerView _recyclerView;
         RecyclerView.LayoutManager _LayoutManager;
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            SetContentView(Resource.Layout.SelectedPage);
+            SetContentView(Resource.Layout.RejectedPage);
+          
 
-           
-           
-          //  SupportActionBar.NavigationMode{ SetContentView(Resource.Layout.LoginPage); };
+            //  SupportActionBar.NavigationMode{ SetContentView(Resource.Layout.LoginPage); };
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.Title = "Selected";
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF8C00"));
             SupportActionBar.SetBackgroundDrawable(colorDrawable);
 
-           
-            _recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
-             candidates = new List<Candidate>
+
+            _recyclerView = FindViewById<RecyclerView>(Resource.Id.RejectedrecyclerView);
+            var products = new List<Candidate>
             {
-                new Candidate {Name = "Poonam Yadav",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Online"},
-                new Candidate {Name = "Riya Patil", Email="riyapatil@bridgelabz.com",Location="Pune",Date="26 March 19",ReferredBy="Email"},
-                new Candidate {Name = "Teena Agrawal",Email="teenaagrawal@bridgelabz.com",Location="Banglore",Date="24 March 19",ReferredBy="Online"},
-                new Candidate {Name = "Heena Chopra", Email="Heenachopra@bridgelabz.com",Location="Mumbai",Date="29 March 19",ReferredBy="Online"},
-                new Candidate {Name = "Kanchan Mehta", Email="Kanchanmehta@bridgelabz.com",Location="Mumbai",Date="21 March 19",ReferredBy="Online"},
-                new Candidate {Name = "Rohit Patel", Email="Rohitpatel@bridgelabz.com",Location="Pune",Date="22 March 19",ReferredBy="Email"},
-                new Candidate {Name = "Akshaj Patil",Email="Akshajpatil@bridgelabz.com",Location="Pune",Date="20 March 19",ReferredBy="Online"},
-                new Candidate {Name = "Heena Chopra", Email="Heenachopra@bridgelabz.com",Location="Mumbai",Date="25 March 19",ReferredBy="Online"},
-                new Candidate {Name = "Rakesh Mehta", Email="Rakeshmehta@bridgelabz.com",Location="Pune",Date="23 March 19",ReferredBy="Online"},
+                new Candidate {Name = "aaa",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
+                new Candidate {Name = "bbb", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
+                new Candidate {Name = "ccc",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
+                new Candidate {Name = "ddd", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
+                new Candidate {Name = "eee", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
+                new Candidate {Name = "fff", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
+                new Candidate {Name = "ggg",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
+                new Candidate {Name = "hhh", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
+                new Candidate {Name = "iii", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
+                new Candidate {Name = "jjj", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
+                new Candidate {Name = "kkk", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
 
             };
-           
-            _adapter = new RecyclerViewAdapter(this, candidates);
+
+            _adapter = new RecyclerViewAdapter(this, products);
             _adapter.ItemClick += OnItemClick;
             _LayoutManager = new LinearLayoutManager(this);
             _recyclerView.SetLayoutManager(_LayoutManager);
             _recyclerView.SetAdapter(_adapter);
-            
-           // _adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, products);
-            //_listView.Adapter = _adapter;
         }
 
         private void OnItemClick(object sender, int e)
         {
-           // RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, candidates);
-            List<Candidate> item= candidates.OrderBy(s => s.Name).ToList();
+            List<Candidate> item = candidates.OrderBy(s => s.Name).ToList();
             var candidate = item[e];
             Intent intent = new Intent(this, typeof(CandidateDetails));
-            intent.PutExtra("Candidate",JsonConvert.SerializeObject(candidate));
+            intent.PutExtra("Candidate", JsonConvert.SerializeObject(candidate));
             this.StartActivity(intent);
-           // StartActivity(typeof(CandidateDetails(candidate)));
+
         }
 
 
@@ -107,10 +89,10 @@ namespace FundooWalkin.Activities
 
             _searchView.QueryTextChange += (s, e) => _adapter.Filter.InvokeFilter(e.NewText);
             _searchView.QueryTextSubmit += (s, e) =>
-             {
-                 Toast.MakeText(this, "Search for :", ToastLength.Short).Show();
-                 e.Handled = true;
-             };
+            {
+                Toast.MakeText(this, "Search for :", ToastLength.Short).Show();
+                e.Handled = true;
+            };
 
             MenuItemCompat.SetOnActionExpandListener(item, new SearchViewExpandListener(_adapter));
             return true;
@@ -149,8 +131,7 @@ namespace FundooWalkin.Activities
                 default:
                     return base.OnOptionsItemSelected(item);
             }
-
-         }
+        }
 
     }
 }
