@@ -59,7 +59,27 @@
                         android:layout_marginTop="6dp"
                         android:id="@+id/emailText"/>
                 </LinearLayout>
+               
                 <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:src="@drawable/location_white"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_width="12dp"
+                        android:layout_height="15dp"
+                        android:layout_marginRight="6dp"
+                        android:id="@+id/imageViewOnline"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/white"
+                        android:layout_marginTop="6dp"
+                        android:id="@+id/locationText"/>
+                </LinearLayout>
+                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -78,28 +98,10 @@
                         android:layout_marginTop="6dp"
                         android:id="@+id/onlineText"/>
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:src="@drawable/locationimg"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_width="12dp"
-                        android:layout_height="15dp"
-                        android:layout_marginRight="6dp"
-                        android:id="@+id/imageViewOnline"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@android:color/white"
-                        android:layout_marginTop="6dp"
-                        android:id="@+id/locationText"/>
-                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
+            
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -124,7 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:paddingHorizontal="40dp"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="18dp"
                 android:gravity="center"
                 android:orientation="horizontal">
                 <TextView
@@ -244,7 +246,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/remark"
-                    android:text="Remarks :"
+                    android:text="REMARKS :"
                     android:layout_marginLeft="11dp"
                     android:layout_marginTop="8dp"
                     android:textColor="@android:color/black"
@@ -261,11 +263,13 @@
                     android:id="@+id/remarkText"/>
             </LinearLayout>
         </LinearLayout>
-
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="135dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
             android:id="@+id/fifthLayout">
             <Button
                 android:layout_width="98dp"
@@ -280,10 +284,7 @@
                 android:layout_marginLeft="15dp"
                 android:id="@+id/editBtn"
                 android:text="Edit"
-                
                 android:background="@layout/rounded_uncolorBtn"/>
         </LinearLayout>
-
-    </LinearLayout>
-</RelativeLayout>
+    </RelativeLayout>
 

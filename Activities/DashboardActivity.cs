@@ -13,12 +13,13 @@ using Android.Views;
 using Android.Widget;
 using SearchView = Android.Widget.SearchView;
 
-namespace FundooWalkin
+namespace FundooWalkin.Activities
+
 {
     /// <summary>
     /// Dashboard showing the candidates selected, to be determined and rejected 
     /// </summary>
-    [Activity(Label = "DashboardActivity")]
+    [Activity(Label = "DashboardActivity", Theme ="@style/NoActionBarTheme")]
     public class DashboardActivity : AppCompatActivity
     {
         private DateTime currentDate;
@@ -49,6 +50,7 @@ namespace FundooWalkin
 
             //// Set our view from the "DashboardPage" layout resource
             SetContentView(Resource.Layout.DashboardPage);
+            Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
 
             ////Set the actions to the date picker
             this._dateSelectButton = FindViewById<Button>(Resource.Id.BtnCalendar);
@@ -56,6 +58,7 @@ namespace FundooWalkin
             this._dateSelectButton.Text = currentDate.ToShortDateString();
 
             ////set the actions to the spinner
+            ///
             this.spinner = FindViewById<Spinner>(Resource.Id.spinnerLocation);
             this.spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
             var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.LocationArray, Android.Resource.Layout.SimpleSpinnerItem);
@@ -121,6 +124,7 @@ namespace FundooWalkin
         private void RejectedButton_OnClick(object sender, EventArgs e)
         {
             Toast.MakeText(this, "Reject button Clicked", ToastLength.Short).Show();
+            StartActivity(typeof(RejectedActivity));
         }
 
         /// <summary>
@@ -131,6 +135,7 @@ namespace FundooWalkin
         private void TBDButton_OnClick(object sender, EventArgs e)
         {
             Toast.MakeText(this, "TBD button Clicked", ToastLength.Short).Show();
+            StartActivity(typeof(TBDActivity));
         }
 
         /// <summary>
@@ -141,7 +146,7 @@ namespace FundooWalkin
         private void SelectedButton_OnClick(object sender, EventArgs e)
         {
             Toast.MakeText(this, "Select button Clicked", ToastLength.Short).Show();
-            StartActivity(typeof(CandidateRemarkActivity));
+            StartActivity(typeof(SelectedActivity));
         }
 
         /// <summary>

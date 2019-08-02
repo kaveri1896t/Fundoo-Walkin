@@ -12,19 +12,22 @@ using Android.Views;
 using Android.Widget;
 using Java.Lang;
 
-namespace FundooWalkin
+namespace FundooWalkin.helper
 {
     class RecyclerViewAdapter : RecyclerView.Adapter, IFilterable
     {
         private List<Candidate> _originalData;
         private List<Candidate> _items;
         private readonly Activity _context;
+        public event EventHandler<int> ItemClick;
+       
+
 
         public Filter Filter { get; private set; }
 
-        public RecyclerViewAdapter(Activity activity, IEnumerable<Candidate> cndidates)
+        public RecyclerViewAdapter(Activity activity, IEnumerable<Candidate> candidates)
         {
-            _items = cndidates.OrderBy(s => s.Name).ToList();
+            _items = candidates.OrderBy(s => s.Name).ToList();
             _context = activity;
 
             Filter = new CandidateFilter(this);
@@ -39,8 +42,14 @@ namespace FundooWalkin
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.Candiate, parent, false);
-            CandidateHolder vh = new CandidateHolder(itemView);
+            CandidateHolder vh = new CandidateHolder(itemView,OnClick);
             return vh;
+        }
+
+        private void OnClick(int position)
+        {
+            if (ItemClick != null)
+                ItemClick(this, position);
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
@@ -49,8 +58,12 @@ namespace FundooWalkin
 
             var candidate = _items[position];
 
-            vh.Image.SetImageResource(candidate.DrawableId);
-            vh.Caption.Text = candidate.Name;
+            vh.Name.Text = candidate.Name;
+            vh.Email.Text = candidate.Email;
+            vh.Location.Text = candidate.Location;
+            vh.Date.Text = candidate.Date;
+
+
         }
 
         public override int ItemCount
@@ -58,15 +71,25 @@ namespace FundooWalkin
             get { return _items.Count; }
         }
 
-        public class CandidateHolder : RecyclerView.ViewHolder
-        {
-            public ImageView Image { get; private set; }
-            public TextView Caption { get; private set; }
+      
 
-            public CandidateHolder(View itemView) : base(itemView)
+        public class CandidateHolder : RecyclerView.ViewHolder
+        { 
+            //public ImageView Image { get; private set; }
+            public TextView Name { get; private set; }
+            public TextView Email { get; private set; }
+            public TextView Location { get; private set; }
+            public TextView Date { get; private set; }
+
+            public CandidateHolder(View itemView,Action<int> listner) : base(itemView)
             {
-                Image = itemView.FindViewById<ImageView>(Resource.Id.emailImage);
-                Caption = itemView.FindViewById<TextView>(Resource.Id.emailtext);
+                //Image = itemView.FindViewById<ImageView>(Resource.Id.emailImage);
+
+                Name = itemView.FindViewById<TextView>(Resource.Id.nameText);
+                Email = itemView.FindViewById<TextView>(Resource.Id.emailtext);
+                Location = itemView.FindViewById<TextView>(Resource.Id.locationText);
+                Date = itemView.FindViewById<TextView>(Resource.Id.dateText);
+                itemView.Click += (sender, e) => listner(base.LayoutPosition);
             }
         }
 
@@ -93,7 +116,7 @@ namespace FundooWalkin
                     // It they are contained they are added to results.
                     results.AddRange(
                         _adapter._originalData.Where(
-                            chemical => chemical.Name.ToLower().Contains(constraint.ToString())));
+                            candidate => candidate.Name.ToLower().Contains(constraint.ToString())));
                 }
 
                 // Nasty piece of .NET to Java wrapping, be careful with this!

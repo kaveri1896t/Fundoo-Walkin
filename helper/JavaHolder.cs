@@ -10,7 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace FundooWalkin
+namespace FundooWalkin.helper
 {
     class JavaHolder : Java.Lang.Object
     {

@@ -12,13 +12,16 @@ using Android.Runtime;
 using Android.Support.V4.App;
 using Android.Support.V7.App;
 using Android.Views;
+using Newtonsoft.Json;
 using Android.Widget;
 
-namespace FundooWalkin
+namespace FundooWalkin.Activities
+
 {
     [Activity(Label = "CandidateDetails")]
     public class CandidateDetails : AppCompatActivity
     {
+        Candidate candidate;
         TextView nameText;
         TextView dateText;
         TextView emailText;
@@ -33,6 +36,11 @@ namespace FundooWalkin
         TextView remarkText;
         Button cancel;
         Button edit;
+       
+       /* public CandidateDetails(Candidate candidate)
+        {
+            this.candidate = candidate;
+        }*/
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -40,26 +48,31 @@ namespace FundooWalkin
             // Create your application here
 
             SetContentView(Resource.Layout.CandidateDetails);
+
+            candidate = JsonConvert.DeserializeObject<Candidate>(Intent.GetStringExtra("Candidate"));
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
-           /* ColorDrawable colorDrawable = new ColorDrawable(Color.Orange);
-            ActionBar.SetBackgroundDrawable(colorDrawable);
-            SupportActionBar.SetBackgroundDrawable(colorDrawable);*/
+            ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF8C00"));
+            //ActionBar.SetBackgroundDrawable(colorDrawable);
+            SupportActionBar.SetBackgroundDrawable(colorDrawable);
             //SupportActionBar.SetDisplayShowCustomEnabled(true);
             SupportActionBar.Title = "CANDIDATE DETAILS";
             //SupportActionBar.NavigationMode { SetContentView(Resource.Layout.SelectedPage) };
             // nameText=FindViewById<TextView>(Resource.Id)
 
             nameText = FindViewById<TextView>(Resource.Id.nameText);
-            nameText.Text = "Poonam Yadav";
+            // nameText.Text = "Poonam Yadav";
+            nameText.Text = candidate.Name;
             dateText = FindViewById<TextView>(Resource.Id.dateText);
-            dateText.Text = "22 March 19";
+            // dateText.Text = "22 March 19";
+            dateText.Text = candidate.Date;
 
             emailText = FindViewById<TextView>(Resource.Id.emailText);
-            emailText.Text = "Poonamyadav@bridgelabz.com";
+            // emailText.Text = "Poonamyadav@bridgelabz.com";
+            emailText.Text = candidate.Email;
             onlineText = FindViewById<TextView>(Resource.Id.onlineText);
-            onlineText.Text = "Online";
+            onlineText.Text = candidate.ReferredBy;
             locationText = FindViewById<TextView>(Resource.Id.locationText);
-            locationText.Text = "Mumbai";
+            locationText.Text = candidate.Location;
 
             attitude = FindViewById<TextView>(Resource.Id.attitudeText);
             attitude.Text = "OK";
@@ -69,14 +82,25 @@ namespace FundooWalkin
             knowledge.Text = "Good";
 
             selected = FindViewById<RadioButton>(Resource.Id.rb_selected);
-            selected.Click += selectedClicked;
+           
+            //selected.Click += selectedClicked;
             TBD = FindViewById<RadioButton>(Resource.Id.rb_tbd);
 
-            TBD.Checked = true;
+           
+            
+            
 
-            TBD.Click += Tbdclicked;
+
+           // TBD.Click += Tbdclicked;
             rejected = FindViewById<RadioButton>(Resource.Id.rb_rejected);
-            rejected.Click += rejectedClicked;
+            // rejected.Click += rejectedClicked;
+          
+            if(selected.Checked=true)
+            {
+                TBD.Checked = false;
+                rejected.Checked = false;
+            }
+           
 
             remarkText = FindViewById<TextView>(Resource.Id.remarkText);
             remarkText.Text = "remark will be displayed here...";
@@ -90,15 +114,16 @@ namespace FundooWalkin
         private void EditClicked(object sender, EventArgs e)
         {
             edit.SetBackgroundColor(Color.Orange);
-            StartActivity(typeof(MainActivity));
+            StartActivity(typeof(CandidateRemarkActivity));
         }
 
         private void CancelClicked(object sender, EventArgs e)
         {
             cancel.SetBackgroundColor(Color.Orange);
+            StartActivity(typeof(SelectedActivity));
         }
 
-        private void rejectedClicked(object sender, EventArgs e)
+       /* private void rejectedClicked(object sender, EventArgs e)
         {
             rejected.SetTextColor(Color.Green);
         }
@@ -111,7 +136,7 @@ namespace FundooWalkin
         private void selectedClicked(object sender, EventArgs e)
         {
             selected.SetTextColor(Color.Green);
-        }
+        }*/
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {

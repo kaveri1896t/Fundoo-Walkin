@@ -59,20 +59,19 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-
-    <Compile Include="Candidate.cs" />
-    <Compile Include="CandidateDetails.cs" />
-
-    <Compile Include="CandidateRemarkActivity.cs" />
-    <Compile Include="DashboardActivity.cs" />
-
+    <Compile Include="Activities\RejectedActivity.cs" />
+    <Compile Include="Activities\TBDActivity.cs" />
+    <Compile Include="Model\Candidate.cs" />
+    <Compile Include="Activities\CandidateDetails.cs" />
+    <Compile Include="Activities\CandidateRemarkActivity.cs" />
+    <Compile Include="Activities\DashboardActivity.cs" />
     <Compile Include="helper\Helper.cs" />
-    <Compile Include="JavaHolder.cs" />
-    <Compile Include="MainActivity.cs" />
-    <Compile Include="RecyclerViewAdapter.cs" />
+    <Compile Include="helper\JavaHolder.cs" />
+    <Compile Include="Activities\MainActivity.cs" />
+    <Compile Include="helper\RecyclerViewAdapter.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SelectedActivity.cs" />
+    <Compile Include="Activities\SelectedActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -126,13 +125,11 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\FundooIcon.png" />
   </ItemGroup>
-
   <ItemGroup>
     <AndroidResource Include="Resources\layout\SelectedPage.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
-
   <ItemGroup>
     <AndroidResource Include="Resources\layout\DashboardPage.axml">
       <SubType>Designer</SubType>
@@ -145,14 +142,12 @@
     <AndroidResource Include="Resources\drawable\LocationIcon.png" />
   </ItemGroup>
   <ItemGroup>
-
     <AndroidResource Include="Resources\menu\main.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\CandidateDetails.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-
     <AndroidResource Include="Resources\drawable\locationIcon1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -160,17 +155,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\rounded_gray.xml" />
-
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\rounded_linearLayout.xml" />
   </ItemGroup>
   <ItemGroup>
-
     <AndroidResource Include="Resources\layout\rounded_textView.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\halfRounded.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\email.jpg" />
@@ -182,17 +172,13 @@
     <AndroidResource Include="Resources\layout\rounded_UncolorBtn.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Candiate.axml">
-
+    <AndroidResource Include="Resources\layout\Candiate.axml" />
     <AndroidResource Include="Resources\layout\rounded_lightGray.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\FillDetailsPage.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\halfRounded.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\rounded_green.xml" />
@@ -202,17 +188,13 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\RemarkCandidatePage.axml">
-
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-
-
     <AndroidResource Include="Resources\drawable\ArrowLeft.png" />
   </ItemGroup>
   <ItemGroup>
-
     <AndroidResource Include="Resources\drawable\browserOnline.png" />
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +202,37 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\locationImg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\halfRounded.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\TBDPage.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\RejectedPage.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_launcher.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Recycler_Rectangle.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\location_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Browser_White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Mail_White.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
