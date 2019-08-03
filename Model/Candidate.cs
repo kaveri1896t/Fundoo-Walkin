@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 
 
-namespace FundooWalkin
+namespace FundooWalkin.Model
 {
     public class Candidate
     {

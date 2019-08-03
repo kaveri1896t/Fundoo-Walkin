@@ -15,6 +15,7 @@ using Android.Views;
 
 using Newtonsoft.Json;
 using Android.Widget;
+using FundooWalkin.Model;
 
 namespace FundooWalkin.Activities
 {

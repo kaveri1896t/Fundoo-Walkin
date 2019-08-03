@@ -45,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <ImageView
-                        android:src="@drawable/emailoutline"
+                        android:src="@drawable/mail_white"
                         android:layout_marginRight="6dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="20dp"
@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <ImageView
-                        android:src="@drawable/browseronline"
+                        android:src="@drawable/browser_white"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="20dp"
                         android:layout_width="12dp"

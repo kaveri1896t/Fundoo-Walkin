@@ -28,6 +28,7 @@ using FundooWalkin.helper;
 
 using EditText = Android.Widget.EditText;
 using SearchView = Android.Support.V7.Widget.SearchView;
+using FundooWalkin.Model;
 
 namespace FundooWalkin.Activities
 
@@ -70,7 +71,7 @@ namespace FundooWalkin.Activities
                 new Candidate {Name = "Kanchan Mehta", Email="Kanchanmehta@bridgelabz.com",Location="Mumbai",Date="21 March 19",ReferredBy="Online"},
                 new Candidate {Name = "Rohit Patel", Email="Rohitpatel@bridgelabz.com",Location="Pune",Date="22 March 19",ReferredBy="Email"},
                 new Candidate {Name = "Akshaj Patil",Email="Akshajpatil@bridgelabz.com",Location="Pune",Date="20 March 19",ReferredBy="Online"},
-                new Candidate {Name = "Heena Chopra", Email="Heenachopra@bridgelabz.com",Location="Mumbai",Date="25 March 19",ReferredBy="Online"},
+                new Candidate {Name = "Manvi Jain", Email="Heenachopra@bridgelabz.com",Location="Mumbai",Date="25 March 19",ReferredBy="Online"},
                 new Candidate {Name = "Rakesh Mehta", Email="Rakeshmehta@bridgelabz.com",Location="Pune",Date="23 March 19",ReferredBy="Online"},
 
             };
@@ -87,8 +88,9 @@ namespace FundooWalkin.Activities
 
         private void OnItemClick(object sender, int e)
         {
-           // RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, candidates);
-            List<Candidate> item= candidates.OrderBy(s => s.Name).ToList();
+            // RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, candidates);
+             List<Candidate> item= candidates.OrderBy(s => s.Name).ToList();
+            
             var candidate = item[e];
             Intent intent = new Intent(this, typeof(CandidateDetails));
             intent.PutExtra("Candidate",JsonConvert.SerializeObject(candidate));
@@ -110,6 +112,7 @@ namespace FundooWalkin.Activities
              {
                  Toast.MakeText(this, "Search for :", ToastLength.Short).Show();
                  e.Handled = true;
+                 
              };
 
             MenuItemCompat.SetOnActionExpandListener(item, new SearchViewExpandListener(_adapter));
