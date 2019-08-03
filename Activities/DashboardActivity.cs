@@ -115,8 +115,6 @@ namespace FundooWalkin.Activities
 
             ////set the actions to the search view
             this.searchView = FindViewById<SearchView>(Resource.Id.CandidateSearchView);
-
-
             this.searchView.SetIconifiedByDefault(false);
             this.searchView.SetQuery("Search Candidate", false);
 
@@ -152,9 +150,9 @@ namespace FundooWalkin.Activities
                new Candidate {Name = "Heena Chopra", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
                new Candidate {Name = "Kanchan Mehta", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
                new Candidate {Name = "Riya Patil", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
-               new Candidate {Name = "Teena Agrawal",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
-               new Candidate {Name = "Heena Chopra", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
-               new Candidate {Name = "Kanchan Mehta", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""}
+               new Candidate {Name = "Minesh Agrawal",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
+               new Candidate {Name = "parmeshwar Raut", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
+               new Candidate {Name = "Mahesh Mehta", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""}
             };
 
             
@@ -169,7 +167,7 @@ namespace FundooWalkin.Activities
         {
             //return base.OnCreateOptionsMenu(menu);
             MenuInflater.Inflate(Resource.Menu.main, menu);
-            var item = menu.FindItem(Resource.Id.action_search);
+            var item = menu.FindItem(Resource.Id.search_go_btn);
             var searchview1 = MenuItemCompat.GetActionView(item);
             this.searchView = searchview1.JavaCast<SearchView>();
 

@@ -15,6 +15,7 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 using FundooWalkin.helper;
+using FundooWalkin.Model;
 using Newtonsoft.Json;
 using SearchView = Android.Support.V7.Widget.SearchView;
 

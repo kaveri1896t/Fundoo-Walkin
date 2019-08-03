@@ -28,6 +28,7 @@ using FundooWalkin.helper;
 
 using EditText = Android.Widget.EditText;
 using SearchView = Android.Support.V7.Widget.SearchView;
+using FundooWalkin.Model;
 
 namespace FundooWalkin.Activities
 
@@ -38,7 +39,7 @@ namespace FundooWalkin.Activities
 
         List<Candidate> candidates;
         private SearchView _searchView;
-      
+
         private RecyclerViewAdapter _adapter;
         private RecyclerView _recyclerView;
         RecyclerView.LayoutManager _LayoutManager;
@@ -50,18 +51,18 @@ namespace FundooWalkin.Activities
             // Create your application here
             SetContentView(Resource.Layout.SelectedPage);
 
-           
-           
-          //  SupportActionBar.NavigationMode{ SetContentView(Resource.Layout.LoginPage); };
+
+
+            //  SupportActionBar.NavigationMode{ SetContentView(Resource.Layout.LoginPage); };
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.Title = "Selected";
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF8C00"));
             SupportActionBar.SetBackgroundDrawable(colorDrawable);
 
-           
+
             _recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
-             candidates = new List<Candidate>
+            candidates = new List<Candidate>
             {
                 new Candidate {Name = "Poonam Yadav",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Online"},
                 new Candidate {Name = "Riya Patil", Email="riyapatil@bridgelabz.com",Location="Pune",Date="26 March 19",ReferredBy="Email"},
@@ -70,30 +71,30 @@ namespace FundooWalkin.Activities
                 new Candidate {Name = "Kanchan Mehta", Email="Kanchanmehta@bridgelabz.com",Location="Mumbai",Date="21 March 19",ReferredBy="Online"},
                 new Candidate {Name = "Rohit Patel", Email="Rohitpatel@bridgelabz.com",Location="Pune",Date="22 March 19",ReferredBy="Email"},
                 new Candidate {Name = "Akshaj Patil",Email="Akshajpatil@bridgelabz.com",Location="Pune",Date="20 March 19",ReferredBy="Online"},
-                new Candidate {Name = "Heena Chopra", Email="Heenachopra@bridgelabz.com",Location="Mumbai",Date="25 March 19",ReferredBy="Online"},
+                new Candidate {Name = "Nakul Chopra", Email="Heenachopra@bridgelabz.com",Location="Mumbai",Date="25 March 19",ReferredBy="Online"},
                 new Candidate {Name = "Rakesh Mehta", Email="Rakeshmehta@bridgelabz.com",Location="Pune",Date="23 March 19",ReferredBy="Online"},
 
             };
-           
+
             _adapter = new RecyclerViewAdapter(this, candidates);
             _adapter.ItemClick += OnItemClick;
             _LayoutManager = new LinearLayoutManager(this);
             _recyclerView.SetLayoutManager(_LayoutManager);
             _recyclerView.SetAdapter(_adapter);
-            
-           // _adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, products);
+
+            // _adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, products);
             //_listView.Adapter = _adapter;
         }
 
         private void OnItemClick(object sender, int e)
         {
-           // RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, candidates);
-            List<Candidate> item= candidates.OrderBy(s => s.Name).ToList();
+            // RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, candidates);
+            List<Candidate> item = candidates.OrderBy(s => s.Name).ToList();
             var candidate = item[e];
             Intent intent = new Intent(this, typeof(CandidateDetails));
-            intent.PutExtra("Candidate",JsonConvert.SerializeObject(candidate));
+            intent.PutExtra("Candidate", JsonConvert.SerializeObject(candidate));
             this.StartActivity(intent);
-           // StartActivity(typeof(CandidateDetails(candidate)));
+            // StartActivity(typeof(CandidateDetails(candidate)));
         }
 
 
@@ -150,7 +151,7 @@ namespace FundooWalkin.Activities
                     return base.OnOptionsItemSelected(item);
             }
 
-         }
+        }
 
     }
 }
