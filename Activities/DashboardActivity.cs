@@ -42,7 +42,7 @@ namespace FundooWalkin.Activities
         private RecyclerView recycler;
         private RecyclerViewAdapter _adapter;
         //private RecyclerView.LayoutManager _LayoutManager;
-        
+
         /// <summary>
         /// Overriding on create method of activity to custumize the dashboard behaviour
         /// </summary>
@@ -63,9 +63,9 @@ namespace FundooWalkin.Activities
             this._dateSelectButton.Text = currentDate.ToShortDateString();
 
             ////set the actions to the spinner
-this.spinner = FindViewById<Spinner>(Resource.Id.spinnerLocation);
-          this.spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
-            var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.LocationArray, Android.Resource.Layout.SimpleSpinnerItem);
+            this.spinner = FindViewById<Spinner>(Resource.Id.spinnerLocation);
+            this.spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
+            var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.LocationArray, Resource.Layout.Spinner_Item);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             this.spinner.Adapter = adapter;
 
@@ -83,18 +83,18 @@ this.spinner = FindViewById<Spinner>(Resource.Id.spinnerLocation);
             this.RejectedButton = FindViewById<Button>(Resource.Id.BtnRejected);
             this.RejectedButton.Click += RejectedButton_OnClick;
             //RejectedButton.Text = "0&#10;" + Resources.GetString(Resource.String.RejectedCandidate);
-            
+
             ////set the actions to the current date textview
             this.TxtViewCurrentDate = FindViewById<TextView>(Resource.Id.TxtCurrentDate);
             this.TxtViewCurrentDate.Text = this.currentDate.ToLongDateString();
 
             ////set the actions to the search view
-            this.searchView = FindViewById<SearchView>(Resource.Id.CandidateSearchView)
-            this.searchView.SetIconifiedByDefault(false);
-            this.searchView.SetQuery("Search Candidate", false);
+            this.searchView = FindViewById<SearchView>(Resource.Id.CandidateSearchView);
+            this.searchView.SetIconifiedByDefault(true);
+            //this.searchView.SetQuery("Search Candidate", false);
 
             ////set the status layout
- this.statusLayout = FindViewById<LinearLayout>(Resource.Id.EveryDayLayout);
+            this.statusLayout = FindViewById<LinearLayout>(Resource.Id.EveryDayLayout);
 
             ////set the candidate status 
             this.TxtCandidateOne = FindViewById<TextView>(Resource.Id.TxtCandidate1);
@@ -111,7 +111,7 @@ this.spinner = FindViewById<Spinner>(Resource.Id.spinnerLocation);
             ////set the time when the candidate status is displayed
             this.TxtTimeOne1 = FindViewById<TextView>(Resource.Id.TxtTime1);
             this.TxtTimeOne1.Text = "1:25 PM";
-            
+
             ////set the candidate recycler view 
             this.recycler = FindViewById<RecyclerView>(Resource.Id.dashboardRecyclerView);
             this.candidates = new List<Candidate>
@@ -126,7 +126,7 @@ this.spinner = FindViewById<Spinner>(Resource.Id.spinnerLocation);
                new Candidate {Name = "parmeshwar Raut", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
                new Candidate {Name = "Mahesh Mehta", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""}
             };
-            
+
             ////add adapter to the recycler view
             this._adapter = new RecyclerViewAdapter(this, this.candidates);
             this._adapter.ItemClick += OnItemClick;
@@ -147,13 +147,13 @@ this.spinner = FindViewById<Spinner>(Resource.Id.spinnerLocation);
             var candidate = item[e];
             Intent intent = new Intent(this, typeof(CandidateDetails));
             intent.PutExtra("Candidate", JsonConvert.SerializeObject(candidate));
-            this.StartActivity(intent); 
+            this.StartActivity(intent);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             //return base.OnCreateOptionsMenu(menu);
-            MenuInflater.Inflate(Resource.Menu.main, menu);
+           //MenuInflater.Inflate(Resource.Menu.main, menu);
             var item = menu.FindItem(Resource.Id.search_go_btn);
             var searchview1 = MenuItemCompat.GetActionView(item);
             this.searchView = searchview1.JavaCast<SearchView>();
@@ -189,7 +189,7 @@ this.spinner = FindViewById<Spinner>(Resource.Id.spinnerLocation);
                 return true;
             }
         }
-        
+
         /// <summary>
         /// handles the event of selected candidate clicked
         /// </summary>

@@ -31,7 +31,7 @@ namespace FundooWalkin.Activities
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.RemarkCandidatePage);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
-            ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF8C00"));
+            ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF7B08"));
             SupportActionBar.SetBackgroundDrawable(colorDrawable);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.Title = "Poonam Yadav";
