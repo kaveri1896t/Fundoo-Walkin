@@ -37,10 +37,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
-                    android:layout_marginRight="95dp"
+                    android:layout_marginRight="120dp"
                     android:gravity="start"
                     android:id="@+id/spinnerLocation"
-                    android:background="#FF8C00"/>
+                    android:background="#FF7B08"/>
 
                 <Button
                     android:layout_width="wrap_content"
