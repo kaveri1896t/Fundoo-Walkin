@@ -35,35 +35,32 @@ namespace FundooWalkin.Activities
 
             // Create your application here
             SetContentView(Resource.Layout.RejectedPage);
-          
-
+            
             //  SupportActionBar.NavigationMode{ SetContentView(Resource.Layout.LoginPage); };
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
-            SupportActionBar.Title = "Selected";
+            SupportActionBar.Title = "Rejected";
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF8C00"));
             SupportActionBar.SetBackgroundDrawable(colorDrawable);
-
-
             _recyclerView = FindViewById<RecyclerView>(Resource.Id.RejectedrecyclerView);
             candidates = new List<Candidate>
             {
-                new Candidate {Name = "aaa",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "bbb", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "ccc",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "ddd", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "eee", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "fff", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "ggg",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "hhh", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "iii", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "jjj", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
-                new Candidate {Name = "kkk", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
+                new Candidate {Name = "aaa",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
+                new Candidate {Name = "bbb", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
+                new Candidate {Name = "ccc",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
+                new Candidate {Name = "ddd", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
+                new Candidate {Name = "eee", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
+                new Candidate {Name = "fff", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
+                new Candidate {Name = "ggg",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
+                new Candidate {Name = "hhh", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
+                new Candidate {Name = "iii", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
+                new Candidate {Name = "jjj", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
+                new Candidate {Name = "kkk", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
 
             };
 
-            _adapter = new RecyclerViewAdapter(this, candidates    );
-            _adapter.ItemClick += OnItemClick;
+_adapter = new RecyclerViewAdapter(this, candidates);
+_adapter.ItemClick += OnItemClick;
             _LayoutManager = new LinearLayoutManager(this);
             _recyclerView.SetLayoutManager(_LayoutManager);
             _recyclerView.SetAdapter(_adapter);
@@ -78,7 +75,6 @@ namespace FundooWalkin.Activities
             this.StartActivity(intent);
 
         }
-
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
@@ -133,6 +129,5 @@ namespace FundooWalkin.Activities
                     return base.OnOptionsItemSelected(item);
             }
         }
-
     }
 }

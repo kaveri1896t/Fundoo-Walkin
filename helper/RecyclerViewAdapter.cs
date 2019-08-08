@@ -27,6 +27,7 @@ namespace FundooWalkin.helper
         public RecyclerViewAdapter(Activity activity, IEnumerable<Candidate> candidates)
         {
             _items = candidates.OrderBy(s => s.Name).ToList();
+            
             _context = activity;
 
             Filter = new CandidateFilter(this);
@@ -37,7 +38,7 @@ namespace FundooWalkin.helper
             return position;
         }
 
-
+        
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.Candiate, parent, false);
@@ -50,6 +51,7 @@ namespace FundooWalkin.helper
         {
             if (ItemClick != null)
                 ItemClick(this, position);
+           
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
@@ -88,12 +90,11 @@ namespace FundooWalkin.helper
                 Email = itemView.FindViewById<TextView>(Resource.Id.emailtext);
                 Location = itemView.FindViewById<TextView>(Resource.Id.locationText);
                 Date = itemView.FindViewById<TextView>(Resource.Id.dateText);
-                itemView.Click += (sender, e) => listner(base.LayoutPosition);
-
-            }
+itemView.Click += (sender, e) => listner(base.LayoutPosition);
+}
         }
 
-        private class CandidateFilter : Filter
+        public class CandidateFilter : Filter
         {
 
             private readonly RecyclerViewAdapter _adapter;
@@ -124,19 +125,20 @@ namespace FundooWalkin.helper
                 // Nasty piece of .NET to Java wrapping, be careful with this!
                 returnObj.Values = FromArray(results.Select(r => r.ToJavaObject()).ToArray());
                 returnObj.Count = results.Count;
-                constraint.Dispose();
-
-                return returnObj;
+constraint.Dispose();
+return returnObj;
             }
 
             protected override void PublishResults(ICharSequence constraint, FilterResults results)
             {
+
                 using (var values = results.Values)
+                 
                     _adapter._items = values.ToArray<Java.Lang.Object>()
                         .Select(r => r.ToNetObject<Candidate>()).ToList();
 
                 _adapter.NotifyDataSetChanged();
-
+                
                 // Don't do this and see GREF counts rising
                 constraint.Dispose();
                 results.Dispose();
