@@ -4446,10 +4446,13 @@ namespace FundooWalkin
 			public const int SelectedPage = 2130968652;
 			
 			// aapt resource value: 0x7f04004d
-			public const int support_simple_spinner_dropdown_item = 2130968653;
+			public const int Spinner_Item = 2130968653;
 			
 			// aapt resource value: 0x7f04004e
-			public const int TBDPage = 2130968654;
+			public const int support_simple_spinner_dropdown_item = 2130968654;
+			
+			// aapt resource value: 0x7f04004f
+			public const int TBDPage = 2130968655;
 			
 			static Layout()
 			{
@@ -5298,11 +5301,11 @@ namespace FundooWalkin
 			// aapt resource value: 0x7f0b01f4
 			public const int MyTheme_ActionBarStyle = 2131427828;
 			
-			// aapt resource value: 0x7f0b01f0
-			public const int NoActionBarTheme = 2131427824;
-			
 			// aapt resource value: 0x7f0b01f1
-			public const int NoActionBarThemeForLogin = 2131427825;
+			public const int NoActionBarTheme = 2131427825;
+			
+			// aapt resource value: 0x7f0b01f0
+			public const int NoActionBarThemeForLogin = 2131427824;
 			
 			// aapt resource value: 0x7f0b0073
 			public const int Platform_AppCompat = 2131427443;

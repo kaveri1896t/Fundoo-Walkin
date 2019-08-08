@@ -213,8 +213,8 @@
     <AndroidResource Include="Resources\drawable\calendar.png" />
   </ItemGroup>
   <ItemGroup>
-<AndroidResource Include="Resources\layout\EditCandidateDetails.axml"/>
-<AndroidResource Include="Resources\layout\TBDPage.axml">
+    <AndroidResource Include="Resources\layout\EditCandidateDetails.axml" />
+    <AndroidResource Include="Resources\layout\TBDPage.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -247,6 +247,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Mail_White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Spinner_Item.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

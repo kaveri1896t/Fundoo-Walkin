@@ -42,7 +42,7 @@ namespace FundooWalkin.Activities
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.Title = "Selected";
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
-            ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF8C00"));
+            ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF7B08"));
             SupportActionBar.SetBackgroundDrawable(colorDrawable);
             _recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
             candidates = new List<Candidate>

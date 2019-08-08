@@ -45,7 +45,7 @@ namespace FundooWalkin.Activities
 
             candidate = JsonConvert.DeserializeObject<Candidate>(Intent.GetStringExtra("Candidate"));
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
-            ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF8C00"));
+            ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF7B08"));
             //ActionBar.SetBackgroundDrawable(colorDrawable);
             SupportActionBar.SetBackgroundDrawable(colorDrawable);
 
