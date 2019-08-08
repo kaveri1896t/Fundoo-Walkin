@@ -25,10 +25,8 @@ namespace FundooWalkin.Activities
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.LoginPage);
-
             EditText username = FindViewById<EditText>(Resource.Id.name);
             EditText password = FindViewById<EditText>(Resource.Id.password);
-           
             Button LoginBtn = FindViewById<Button>(Resource.Id.Loginbtn);
             LoginBtn.Click += async (object sender, EventArgs e) =>
             {
@@ -67,7 +65,6 @@ namespace FundooWalkin.Activities
                  }*/
 
                 StartActivity(typeof(DashboardActivity));
-
             };
         }
 
@@ -77,7 +74,5 @@ namespace FundooWalkin.Activities
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
-
-        
     }
 }

@@ -11,7 +11,7 @@ using Android.Runtime;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
-
+using FundooWalkin.Model;
 using Java.Lang;
 
 namespace FundooWalkin.helper
@@ -27,6 +27,7 @@ namespace FundooWalkin.helper
         public RecyclerViewAdapter(Activity activity, IEnumerable<Candidate> candidates)
         {
             _items = candidates.OrderBy(s => s.Name).ToList();
+            
             _context = activity;
 
             Filter = new CandidateFilter(this);
@@ -37,11 +38,11 @@ namespace FundooWalkin.helper
             return position;
         }
 
-
+        
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.Candiate, parent, false);
-CandidateHolder vh = new CandidateHolder(itemView,OnClick);
+            CandidateHolder vh = new CandidateHolder(itemView, OnClick);
 
             return vh;
         }
@@ -50,6 +51,7 @@ CandidateHolder vh = new CandidateHolder(itemView,OnClick);
         {
             if (ItemClick != null)
                 ItemClick(this, position);
+           
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
@@ -70,8 +72,8 @@ CandidateHolder vh = new CandidateHolder(itemView,OnClick);
             get { return _items.Count; }
         }
 
-public class CandidateHolder : RecyclerView.ViewHolder
-        { 
+        public class CandidateHolder : RecyclerView.ViewHolder
+        {
 
             //public ImageView Image { get; private set; }
             public TextView Name { get; private set; }
@@ -79,7 +81,7 @@ public class CandidateHolder : RecyclerView.ViewHolder
             public TextView Location { get; private set; }
             public TextView Date { get; private set; }
 
-public CandidateHolder(View itemView,Action<int> listner) : base(itemView)
+            public CandidateHolder(View itemView, Action<int> listner) : base(itemView)
 
             {
                 //Image = itemView.FindViewById<ImageView>(Resource.Id.emailImage);
@@ -89,12 +91,12 @@ public CandidateHolder(View itemView,Action<int> listner) : base(itemView)
                 Location = itemView.FindViewById<TextView>(Resource.Id.locationText);
                 Date = itemView.FindViewById<TextView>(Resource.Id.dateText);
 
-                itemView.Click += (sender, e) => listner(base.LayoutPosition);
+                itemView.Click += (sender, e) => listner(this.LayoutPosition);
 
             }
         }
 
-        private class CandidateFilter : Filter
+        public class CandidateFilter : Filter
         {
 
             private readonly RecyclerViewAdapter _adapter;
@@ -125,7 +127,7 @@ public CandidateHolder(View itemView,Action<int> listner) : base(itemView)
                 // Nasty piece of .NET to Java wrapping, be careful with this!
                 returnObj.Values = FromArray(results.Select(r => r.ToJavaObject()).ToArray());
                 returnObj.Count = results.Count;
-
+                
                 constraint.Dispose();
 
                 return returnObj;
@@ -133,12 +135,14 @@ public CandidateHolder(View itemView,Action<int> listner) : base(itemView)
 
             protected override void PublishResults(ICharSequence constraint, FilterResults results)
             {
+
                 using (var values = results.Values)
+                 
                     _adapter._items = values.ToArray<Java.Lang.Object>()
                         .Select(r => r.ToNetObject<Candidate>()).ToList();
 
                 _adapter.NotifyDataSetChanged();
-
+                
                 // Don't do this and see GREF counts rising
                 constraint.Dispose();
                 results.Dispose();

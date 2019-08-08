@@ -2,66 +2,45 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
-
-
 using Android.Graphics;
-
-
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
-
-
 using FundooWalkin.Model;
 using SearchView = Android.Support.V7.Widget.SearchView;
 using FundooWalkin.helper;
 using Android.Support.V4.View;
 
 namespace FundooWalkin.Activities
-
-
 {
     /// <summary>
     /// Dashboard showing the candidates selected, to be determined and rejected 
     /// </summary>
-
-
     [Activity(Label = "DashboardActivity", Theme = "@style/NoActionBarTheme")]
     public class DashboardActivity : AppCompatActivity
     {
-        private DateTime currentDate; 
-
-
+        private DateTime currentDate;
         private Button _dateSelectButton;
         private Spinner spinner;
         private Button SelectedButton;
         private Button TBDButton;
         private Button RejectedButton;
         private TextView TxtViewCurrentDate;
-
-
         private SearchView searchView;
-
-
         private LinearLayout statusLayout;
         private TextView TxtCandidateOne;
         private TextView TxtCandidateTwo;
         private TextView TxtTimeOne;
         private TextView TxtTimeOne1;
-
-
         private RecyclerView recycler;
         private RecyclerViewAdapter _adapter;
         //private RecyclerView.LayoutManager _LayoutManager;
-
-
-
+        
         /// <summary>
         /// Overriding on create method of activity to custumize the dashboard behaviour
         /// </summary>
@@ -74,8 +53,6 @@ namespace FundooWalkin.Activities
 
             //// Set our view from the "DashboardPage" layout resource
             SetContentView(Resource.Layout.DashboardPage);
-
-
             Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
 
             ////Set the actions to the date picker
@@ -84,9 +61,7 @@ namespace FundooWalkin.Activities
             this._dateSelectButton.Text = currentDate.ToShortDateString();
 
             ////set the actions to the spinner
-
-
-            this.spinner = FindViewById<Spinner>(Resource.Id.spinnerLocation);
+            ///this.spinner = FindViewById<Spinner>(Resource.Id.spinnerLocation);
             this.spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
             var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.LocationArray, Android.Resource.Layout.SimpleSpinnerItem);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
@@ -106,9 +81,7 @@ namespace FundooWalkin.Activities
             this.RejectedButton = FindViewById<Button>(Resource.Id.BtnRejected);
             this.RejectedButton.Click += RejectedButton_OnClick;
             //RejectedButton.Text = "0&#10;" + Resources.GetString(Resource.String.RejectedCandidate);
-
-            //EveryDayLinearLayout = FindViewById<LinearLayout>(Resource.Id)
-
+            
             ////set the actions to the current date textview
             this.TxtViewCurrentDate = FindViewById<TextView>(Resource.Id.TxtCurrentDate);
             this.TxtViewCurrentDate.Text = this.currentDate.ToLongDateString();
@@ -116,15 +89,12 @@ namespace FundooWalkin.Activities
             ////set the actions to the search view
             this.searchView = FindViewById<SearchView>(Resource.Id.CandidateSearchView);
 
-
             this.searchView.SetIconifiedByDefault(false);
             this.searchView.SetQuery("Search Candidate", false);
 
             ////set the status layout
             this.statusLayout = FindViewById<LinearLayout>(Resource.Id.EveryDayLayout);  
-
-
-
+            
             ////set the candidate status 
             this.TxtCandidateOne = FindViewById<TextView>(Resource.Id.TxtCandidate1);
             this.TxtCandidateOne.Text = "Aniket Chile selected";
@@ -140,8 +110,7 @@ namespace FundooWalkin.Activities
             ////set the time when the candidate status is displayed
             this.TxtTimeOne1 = FindViewById<TextView>(Resource.Id.TxtTime1);
             this.TxtTimeOne1.Text = "1:25 PM";
-
-
+            
             ////set the candidate recycler view 
             this.recycler = FindViewById<RecyclerView>(Resource.Id.dashboardRecyclerView);
             var products = new List<Candidate>
@@ -156,7 +125,6 @@ namespace FundooWalkin.Activities
                new Candidate {Name = "Heena Chopra", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
                new Candidate {Name = "Kanchan Mehta", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""}
             };
-
             
             ////add adapter to the recycler view
             this._adapter = new RecyclerViewAdapter(this, products);
@@ -203,10 +171,8 @@ namespace FundooWalkin.Activities
             {
                 return true;
             }
-
-
         }
-
+        
         /// <summary>
         /// handles the event of selected candidate clicked
         /// </summary>
@@ -214,12 +180,7 @@ namespace FundooWalkin.Activities
         /// <param name="e">event arguments</param>
         private void RejectedButton_OnClick(object sender, EventArgs e)
         {
-            Toast.MakeText(this, "Reject button Clicked", ToastLength.Short).Show();
-
-
             StartActivity(typeof(RejectedActivity));
-
-
         }
 
         /// <summary>
@@ -229,12 +190,7 @@ namespace FundooWalkin.Activities
         /// <param name="e">event arguments</param>
         private void TBDButton_OnClick(object sender, EventArgs e)
         {
-            Toast.MakeText(this, "TBD button Clicked", ToastLength.Short).Show();
-
-
             StartActivity(typeof(TBDActivity));
-
-
         }
 
         /// <summary>
@@ -244,7 +200,6 @@ namespace FundooWalkin.Activities
         /// <param name="e">event arguments</param>
         private void SelectedButton_OnClick(object sender, EventArgs e)
         {
-            Toast.MakeText(this, "Select button Clicked", ToastLength.Short).Show();
             StartActivity(typeof(SelectedActivity));
         }
 
@@ -329,9 +284,6 @@ namespace FundooWalkin.Activities
                 _dateSelectedHandler(selectedDate);
             }
         }
-
-
-
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)
@@ -344,7 +296,5 @@ namespace FundooWalkin.Activities
                     return base.OnOptionsItemSelected(item);
             }
         }
-
-
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.Graphics;
@@ -15,6 +14,7 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 using FundooWalkin.helper;
+using FundooWalkin.Model;
 using Newtonsoft.Json;
 using SearchView = Android.Support.V7.Widget.SearchView;
 
@@ -33,20 +33,16 @@ namespace FundooWalkin.Activities
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-
             SetContentView(Resource.Layout.TBDPage);
             
-
             //  SupportActionBar.NavigationMode{ SetContentView(Resource.Layout.LoginPage); };
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
-            SupportActionBar.Title = "Selected";
+            SupportActionBar.Title = "TBD";
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF8C00"));
             SupportActionBar.SetBackgroundDrawable(colorDrawable);
-
-
             _recyclerView = FindViewById<RecyclerView>(Resource.Id.TBDrecyclerView);
-            var products = new List<Candidate>
+            candidates = new List<Candidate>
             {
                 new Candidate {Name = "Pooja Mehtre",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
                 new Candidate {Name = "Priyanka Patil", Email="Priyankapatil@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
@@ -59,10 +55,9 @@ namespace FundooWalkin.Activities
                 new Candidate {Name = "Nipun Shaha", Email="Nipunshaha@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Online"},
                 new Candidate {Name = "Prajakta Shaha", Email="Prajaktashaha@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
                 new Candidate {Name = "Ashwin Shaha", Email="Ashwinshaha@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
-
             };
 
-            _adapter = new RecyclerViewAdapter(this, products);
+            _adapter = new RecyclerViewAdapter(this, candidates);
             _adapter.ItemClick += OnItemClick;
             _LayoutManager = new LinearLayoutManager(this);
             _recyclerView.SetLayoutManager(_LayoutManager);

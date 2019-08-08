@@ -216,7 +216,7 @@
     <AndroidResource Include="Resources\drawable\calendar.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\EditCandidateDetails.axml">
+    <AndroidResource Include="Resources\layout\EditCandidateDetails.axml"/>
 
     <AndroidResource Include="Resources\layout\TBDPage.axml">
       <SubType>Designer</SubType>

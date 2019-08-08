@@ -14,7 +14,7 @@
             android:orientation="vertical"
             android:layout_above="@+id/secondLayout"
             android:background="@layout/halfRounded">
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -24,18 +24,21 @@
                     android:textColor="@android:color/white"
                     android:textSize="18dp"
                     android:textStyle="bold"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="22dp"
                     android:id="@+id/nameText"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="153dp"
+                    android:layout_alignParentRight="true"
                     android:textSize="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_centerVertical="true"
                     android:textColor="@android:color/black"
                     android:id="@+id/dateText"
                     android:background="@layout/rounded_textView"/>
-            </LinearLayout>
+            </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -45,7 +48,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <ImageView
-                        android:src="@drawable/emailoutline"
+                        android:src="@drawable/mail_white"
                         android:layout_marginRight="6dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="20dp"
@@ -66,10 +69,10 @@
                     android:orientation="horizontal">
                     <ImageView
                         android:src="@drawable/location_white"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_width="12dp"
-                        android:layout_height="15dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="19dp"
+                        android:layout_width="14dp"
+                        android:layout_height="18dp"
                         android:layout_marginRight="6dp"
                         android:id="@+id/imageViewOnline"/>
                     <TextView
@@ -84,8 +87,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <ImageView
-                        android:src="@drawable/browseronline"
-                        android:layout_marginTop="10dp"
+                        android:src="@drawable/browser_white"
+                        android:layout_marginTop="9dp"
                         android:layout_marginLeft="20dp"
                         android:layout_width="12dp"
                         android:layout_height="15dp"
