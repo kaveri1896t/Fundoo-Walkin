@@ -35,7 +35,7 @@ namespace FundooWalkin.Activities
 
             // Create your application here
             SetContentView(Resource.Layout.RejectedPage);
-            
+
             //  SupportActionBar.NavigationMode{ SetContentView(Resource.Layout.LoginPage); };
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.Title = "Rejected";
@@ -59,8 +59,8 @@ namespace FundooWalkin.Activities
 
             };
 
-_adapter = new RecyclerViewAdapter(this, candidates);
-_adapter.ItemClick += OnItemClick;
+            _adapter = new RecyclerViewAdapter(this, candidates);
+            _adapter.ItemClick += OnItemClick;
             _LayoutManager = new LinearLayoutManager(this);
             _recyclerView.SetLayoutManager(_LayoutManager);
             _recyclerView.SetAdapter(_adapter);

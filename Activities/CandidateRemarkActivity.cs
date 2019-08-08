@@ -68,7 +68,7 @@ namespace FundooWalkin.Activities
             ////set the text of text view
             this.txtCandidateStatus = FindViewById<TextView>(Resource.Id.TxtCandidateStatus);
             this.txtCandidateStatus.Text = "online";
-            
+
             ////set the actions to the cancel button
             this.remarkCancelButton = FindViewById<Button>(Resource.Id.BtnCancel);
             this.remarkCancelButton.Click += remarkCancelButton_Clicked;

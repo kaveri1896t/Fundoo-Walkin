@@ -39,7 +39,7 @@ namespace FundooWalkin.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            
+
             // Create your application here
             SetContentView(Resource.Layout.CandidateDetails);
 
@@ -48,14 +48,14 @@ namespace FundooWalkin.Activities
             ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF7B08"));
             //ActionBar.SetBackgroundDrawable(colorDrawable);
             SupportActionBar.SetBackgroundDrawable(colorDrawable);
-            
+
             //SupportActionBar.SetDisplayShowCustomEnabled(true);
             SupportActionBar.Title = "CANDIDATE DETAILS";
             //SupportActionBar.NavigationMode { SetContentView(Resource.Layout.SelectedPage) };
             // nameText=FindViewById<TextView>(Resource.Id)
 
             nameText = FindViewById<TextView>(Resource.Id.nameText);
-            
+
             // nameText.Text = "Poonam Yadav";
             nameText.Text = candidate.Name;
             dateText = FindViewById<TextView>(Resource.Id.dateText);
@@ -76,15 +76,15 @@ namespace FundooWalkin.Activities
             knowledge = FindViewById<TextView>(Resource.Id.knowledgeText);
             knowledge.Text = "Good";
             selected = FindViewById<RadioButton>(Resource.Id.rb_selected);
-            
+
             //selected.Click += selectedClicked;
             TBD = FindViewById<RadioButton>(Resource.Id.rb_tbd);
-            
+
             // TBD.Click += Tbdclicked;
             rejected = FindViewById<RadioButton>(Resource.Id.rb_rejected);
             // rejected.Click += rejectedClicked;
 
-            if (selected.Checked=true)
+            if (selected.Checked = true)
             {
                 TBD.Checked = false;
                 rejected.Checked = false;
@@ -95,7 +95,7 @@ namespace FundooWalkin.Activities
             cancel = FindViewById<Button>(Resource.Id.cancelBtn);
             cancel.Click += CancelClicked;
             edit = FindViewById<Button>(Resource.Id.editBtn);
-            edit.Click  += EditClicked;
+            edit.Click += EditClicked;
         }
 
         private void EditClicked(object sender, EventArgs e)
@@ -126,7 +126,7 @@ namespace FundooWalkin.Activities
 
         public void onRadioButtonClicked(View v)
         {
-         
+
         }
     }
 }

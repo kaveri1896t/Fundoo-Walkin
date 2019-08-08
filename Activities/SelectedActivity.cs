@@ -27,7 +27,7 @@ namespace FundooWalkin.Activities
     {
         List<Candidate> candidates;
         private SearchView _searchView;
-private RecyclerViewAdapter _adapter;
+        private RecyclerViewAdapter _adapter;
         private RecyclerView _recyclerView;
         RecyclerView.LayoutManager _LayoutManager;
 
@@ -44,7 +44,7 @@ private RecyclerViewAdapter _adapter;
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF7B08"));
             SupportActionBar.SetBackgroundDrawable(colorDrawable);
-_recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
+            _recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
             candidates = new List<Candidate>
             {
                 new Candidate {Name = "Poonam Yadav",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Online"},
@@ -59,18 +59,18 @@ new Candidate {Name = "Manvi Jain", Email="Heenachopra@bridgelabz.com",Location=
 new Candidate {Name = "Rakesh Mehta", Email="Rakeshmehta@bridgelabz.com",Location="Pune",Date="23 March 19",ReferredBy="Online"},
 };
 
-_adapter = new RecyclerViewAdapter(this, candidates);
+            _adapter = new RecyclerViewAdapter(this, candidates);
             _adapter.ItemClick += OnItemClick;
             _LayoutManager = new LinearLayoutManager(this);
             _recyclerView.SetLayoutManager(_LayoutManager);
             _recyclerView.SetAdapter(_adapter);
-            }
+        }
 
         private void OnItemClick(object sender, int e)
         {
             // RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, candidates);
-List<Candidate> item = candidates.OrderBy(s => s.Name).ToList();
-var candidate = item[e];
+            List<Candidate> item = candidates.OrderBy(s => s.Name).ToList();
+            var candidate = item[e];
             Intent intent = new Intent(this, typeof(CandidateDetails));
             intent.PutExtra("Candidate", JsonConvert.SerializeObject(candidate));
             this.StartActivity(intent);
@@ -90,7 +90,7 @@ var candidate = item[e];
              {
                  Toast.MakeText(this, "Search for :", ToastLength.Short).Show();
                  e.Handled = true;
-                 
+
              };
 
             MenuItemCompat.SetOnActionExpandListener(item, new SearchViewExpandListener(_adapter));
@@ -130,6 +130,6 @@ var candidate = item[e];
                 default:
                     return base.OnOptionsItemSelected(item);
             }
-         }
- }
+        }
+    }
 }

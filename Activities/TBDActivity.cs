@@ -34,7 +34,7 @@ namespace FundooWalkin.Activities
 
             // Create your application here
             SetContentView(Resource.Layout.TBDPage);
-            
+
             //  SupportActionBar.NavigationMode{ SetContentView(Resource.Layout.LoginPage); };
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.Title = "TBD";
