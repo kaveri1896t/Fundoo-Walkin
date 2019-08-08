@@ -46,7 +46,7 @@ namespace FundooWalkin.Activities
 
 
             _recyclerView = FindViewById<RecyclerView>(Resource.Id.RejectedrecyclerView);
-            var products = new List<Candidate>
+            candidates = new List<Candidate>
             {
                 new Candidate {Name = "aaa",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
                 new Candidate {Name = "bbb", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date="22 March 19"},
@@ -62,7 +62,7 @@ namespace FundooWalkin.Activities
 
             };
 
-            _adapter = new RecyclerViewAdapter(this, products);
+            _adapter = new RecyclerViewAdapter(this, candidates    );
             _adapter.ItemClick += OnItemClick;
             _LayoutManager = new LinearLayoutManager(this);
             _recyclerView.SetLayoutManager(_LayoutManager);
