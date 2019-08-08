@@ -15,6 +15,7 @@ using FundooWalkin.Model;
 using SearchView = Android.Support.V7.Widget.SearchView;
 using FundooWalkin.helper;
 using Android.Support.V4.View;
+using Newtonsoft.Json;
 
 namespace FundooWalkin.Activities
 {
@@ -24,6 +25,7 @@ namespace FundooWalkin.Activities
     [Activity(Label = "DashboardActivity", Theme = "@style/NoActionBarTheme")]
     public class DashboardActivity : AppCompatActivity
     {
+        public List<Candidate> candidates;
         private DateTime currentDate;
         private Button _dateSelectButton;
         private Spinner spinner;
@@ -61,8 +63,8 @@ namespace FundooWalkin.Activities
             this._dateSelectButton.Text = currentDate.ToShortDateString();
 
             ////set the actions to the spinner
-            ///this.spinner = FindViewById<Spinner>(Resource.Id.spinnerLocation);
-            this.spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
+this.spinner = FindViewById<Spinner>(Resource.Id.spinnerLocation);
+          this.spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
             var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.LocationArray, Android.Resource.Layout.SimpleSpinnerItem);
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             this.spinner.Adapter = adapter;
@@ -87,14 +89,13 @@ namespace FundooWalkin.Activities
             this.TxtViewCurrentDate.Text = this.currentDate.ToLongDateString();
 
             ////set the actions to the search view
-            this.searchView = FindViewById<SearchView>(Resource.Id.CandidateSearchView);
-
+            this.searchView = FindViewById<SearchView>(Resource.Id.CandidateSearchView)
             this.searchView.SetIconifiedByDefault(false);
             this.searchView.SetQuery("Search Candidate", false);
 
             ////set the status layout
-            this.statusLayout = FindViewById<LinearLayout>(Resource.Id.EveryDayLayout);  
-            
+ this.statusLayout = FindViewById<LinearLayout>(Resource.Id.EveryDayLayout);
+
             ////set the candidate status 
             this.TxtCandidateOne = FindViewById<TextView>(Resource.Id.TxtCandidate1);
             this.TxtCandidateOne.Text = "Aniket Chile selected";
@@ -113,7 +114,7 @@ namespace FundooWalkin.Activities
             
             ////set the candidate recycler view 
             this.recycler = FindViewById<RecyclerView>(Resource.Id.dashboardRecyclerView);
-            var products = new List<Candidate>
+            this.candidates = new List<Candidate>
            {
                new Candidate {Name = "Poonam Yadav",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
                new Candidate {Name = "Riya Patil", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
@@ -121,23 +122,39 @@ namespace FundooWalkin.Activities
                new Candidate {Name = "Heena Chopra", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
                new Candidate {Name = "Kanchan Mehta", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
                new Candidate {Name = "Riya Patil", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
-               new Candidate {Name = "Teena Agrawal",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
-               new Candidate {Name = "Heena Chopra", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
-               new Candidate {Name = "Kanchan Mehta", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""}
+               new Candidate {Name = "Minesh Agrawal",Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
+               new Candidate {Name = "parmeshwar Raut", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""},
+               new Candidate {Name = "Mahesh Mehta", Email="Poonamyadav@bridgelabz.com",Location="Mumbai",Date=""}
             };
             
             ////add adapter to the recycler view
-            this._adapter = new RecyclerViewAdapter(this, products);
+            this._adapter = new RecyclerViewAdapter(this, this.candidates);
+            this._adapter.ItemClick += OnItemClick;
             LinearLayoutManager _LayoutManager = new LinearLayoutManager(this, LinearLayoutManager.Horizontal, false);
             this.recycler.SetLayoutManager(_LayoutManager);
             this.recycler.SetAdapter(this._adapter);
+        }
+
+        /// <summary>
+        /// handling the event of item click from the recycler view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnItemClick(object sender, int e)
+        {
+            // RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, candidates);
+            List<Candidate> item = candidates.OrderBy(s => s.Name).ToList();
+            var candidate = item[e];
+            Intent intent = new Intent(this, typeof(CandidateDetails));
+            intent.PutExtra("Candidate", JsonConvert.SerializeObject(candidate));
+            this.StartActivity(intent); 
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             //return base.OnCreateOptionsMenu(menu);
             MenuInflater.Inflate(Resource.Menu.main, menu);
-            var item = menu.FindItem(Resource.Id.action_search);
+            var item = menu.FindItem(Resource.Id.search_go_btn);
             var searchview1 = MenuItemCompat.GetActionView(item);
             this.searchView = searchview1.JavaCast<SearchView>();
 

@@ -90,10 +90,8 @@ namespace FundooWalkin.helper
                 Email = itemView.FindViewById<TextView>(Resource.Id.emailtext);
                 Location = itemView.FindViewById<TextView>(Resource.Id.locationText);
                 Date = itemView.FindViewById<TextView>(Resource.Id.dateText);
-
-                itemView.Click += (sender, e) => listner(this.LayoutPosition);
-
-            }
+itemView.Click += (sender, e) => listner(base.LayoutPosition);
+}
         }
 
         public class CandidateFilter : Filter
@@ -127,10 +125,8 @@ namespace FundooWalkin.helper
                 // Nasty piece of .NET to Java wrapping, be careful with this!
                 returnObj.Values = FromArray(results.Select(r => r.ToJavaObject()).ToArray());
                 returnObj.Count = results.Count;
-                
-                constraint.Dispose();
-
-                return returnObj;
+constraint.Dispose();
+return returnObj;
             }
 
             protected override void PublishResults(ICharSequence constraint, FilterResults results)

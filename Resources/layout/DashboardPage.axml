@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:id="@+id/MainLayout">
-        <LinearLayout
+        <LinearLayout 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -40,9 +40,7 @@
                     android:layout_marginRight="95dp"
                     android:gravity="start"
                     android:id="@+id/spinnerLocation"
-
                     android:background="#FF8C00"/>
-                 
 
                 <Button
                     android:layout_width="wrap_content"
@@ -52,6 +50,7 @@
                     android:drawableRight="@drawable/ic_event_24px"
                     android:id="@+id/BtnCalendar"
                     android:gravity="center"
+                    android:layout_gravity="right"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="10dp"
                     />
