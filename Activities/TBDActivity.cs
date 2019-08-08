@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.Graphics;
@@ -34,18 +33,14 @@ namespace FundooWalkin.Activities
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-
             SetContentView(Resource.Layout.TBDPage);
             
-
             //  SupportActionBar.NavigationMode{ SetContentView(Resource.Layout.LoginPage); };
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.Title = "TBD";
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF8C00"));
             SupportActionBar.SetBackgroundDrawable(colorDrawable);
-
-
             _recyclerView = FindViewById<RecyclerView>(Resource.Id.TBDrecyclerView);
             candidates = new List<Candidate>
             {
@@ -60,7 +55,6 @@ namespace FundooWalkin.Activities
                 new Candidate {Name = "Nipun Shaha", Email="Nipunshaha@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Online"},
                 new Candidate {Name = "Prajakta Shaha", Email="Prajaktashaha@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
                 new Candidate {Name = "Ashwin Shaha", Email="Ashwinshaha@bridgelabz.com",Location="Mumbai",Date="22 March 19",ReferredBy="Email"},
-
             };
 
             _adapter = new RecyclerViewAdapter(this, candidates);

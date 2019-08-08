@@ -2,44 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
-
 using Newtonsoft.Json;
-
-
 using Android.App;
 using Android.Content;
 using Android.Graphics;
 using Android.Graphics.Drawables;
-
-
 using Android.OS;
 using Android.Runtime;
 using Android.Support.V4.View;
 using Android.Support.V7.App;
-
-
 using Android.Support.V7.Widget;
 using Android.Text;
 using Android.Views;
 using Android.Widget;
 using FundooWalkin.helper;
-
-
 using EditText = Android.Widget.EditText;
 using SearchView = Android.Support.V7.Widget.SearchView;
 using FundooWalkin.Model;
 
 namespace FundooWalkin.Activities
-
 {
     [Activity(Label = "SelectedActivity")]
     public class SelectedActivity : AppCompatActivity
     {
-
         List<Candidate> candidates;
         private SearchView _searchView;
-      
         private RecyclerViewAdapter _adapter;
         private RecyclerView _recyclerView;
         RecyclerView.LayoutManager _LayoutManager;
@@ -50,17 +37,13 @@ namespace FundooWalkin.Activities
 
             // Create your application here
             SetContentView(Resource.Layout.SelectedPage);
-
-           
-           
-          //  SupportActionBar.NavigationMode{ SetContentView(Resource.Layout.LoginPage); };
+            
+            //  SupportActionBar.NavigationMode{ SetContentView(Resource.Layout.LoginPage); };
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.Title = "Selected";
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF8C00"));
             SupportActionBar.SetBackgroundDrawable(colorDrawable);
-
-           
             _recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
              candidates = new List<Candidate>
             {
@@ -81,23 +64,18 @@ namespace FundooWalkin.Activities
             _LayoutManager = new LinearLayoutManager(this);
             _recyclerView.SetLayoutManager(_LayoutManager);
             _recyclerView.SetAdapter(_adapter);
-            
-           // _adapter = new ArrayAdapter<string>(this, Android.Resource.Layout.SimpleListItem1, products);
-            //_listView.Adapter = _adapter;
         }
 
         private void OnItemClick(object sender, int e)
         {
             // RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, candidates);
              List<Candidate> item= candidates.OrderBy(s => s.Name).ToList();
-            
             var candidate = item[e];
             Intent intent = new Intent(this, typeof(CandidateDetails));
             intent.PutExtra("Candidate",JsonConvert.SerializeObject(candidate));
             this.StartActivity(intent);
            // StartActivity(typeof(CandidateDetails(candidate)));
         }
-
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
@@ -154,6 +132,5 @@ namespace FundooWalkin.Activities
             }
 
          }
-
     }
 }

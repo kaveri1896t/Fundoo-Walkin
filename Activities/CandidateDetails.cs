@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.Graphics;
@@ -12,7 +11,6 @@ using Android.Runtime;
 using Android.Support.V4.App;
 using Android.Support.V7.App;
 using Android.Views;
-
 using Newtonsoft.Json;
 using Android.Widget;
 using FundooWalkin.Model;
@@ -22,11 +20,7 @@ namespace FundooWalkin.Activities
     [Activity(Label = "CandidateDetails")]
     public class CandidateDetails : AppCompatActivity
     {
-
-
         Candidate candidate;
-
-
         TextView nameText;
         TextView dateText;
         TextView emailText;
@@ -42,22 +36,11 @@ namespace FundooWalkin.Activities
         Button cancel;
         Button edit;
 
-
-       
-       /* public CandidateDetails(Candidate candidate)
-        {
-            this.candidate = candidate;
-        }*/
-
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-
-
+            
             // Create your application here
-
             SetContentView(Resource.Layout.CandidateDetails);
 
             candidate = JsonConvert.DeserializeObject<Candidate>(Intent.GetStringExtra("Candidate"));
@@ -65,16 +48,14 @@ namespace FundooWalkin.Activities
             ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF8C00"));
             //ActionBar.SetBackgroundDrawable(colorDrawable);
             SupportActionBar.SetBackgroundDrawable(colorDrawable);
-
-
+            
             //SupportActionBar.SetDisplayShowCustomEnabled(true);
             SupportActionBar.Title = "CANDIDATE DETAILS";
             //SupportActionBar.NavigationMode { SetContentView(Resource.Layout.SelectedPage) };
             // nameText=FindViewById<TextView>(Resource.Id)
 
             nameText = FindViewById<TextView>(Resource.Id.nameText);
-
-
+            
             // nameText.Text = "Poonam Yadav";
             nameText.Text = candidate.Name;
             dateText = FindViewById<TextView>(Resource.Id.dateText);
@@ -88,39 +69,29 @@ namespace FundooWalkin.Activities
             onlineText.Text = candidate.ReferredBy;
             locationText = FindViewById<TextView>(Resource.Id.locationText);
             locationText.Text = candidate.Location;
-
-
             attitude = FindViewById<TextView>(Resource.Id.attitudeText);
             attitude.Text = "OK";
             communication = FindViewById<TextView>(Resource.Id.communicationText);
             communication.Text = "Fine";
             knowledge = FindViewById<TextView>(Resource.Id.knowledgeText);
             knowledge.Text = "Good";
-
             selected = FindViewById<RadioButton>(Resource.Id.rb_selected);
-
-
+            
             //selected.Click += selectedClicked;
             TBD = FindViewById<RadioButton>(Resource.Id.rb_tbd);
-
-           
-
-// TBD.Click += Tbdclicked;
+            
+            // TBD.Click += Tbdclicked;
             rejected = FindViewById<RadioButton>(Resource.Id.rb_rejected);
             // rejected.Click += rejectedClicked;
-          
 
-
-            if(selected.Checked=true)
+            if (selected.Checked=true)
             {
                 TBD.Checked = false;
                 rejected.Checked = false;
             }
 
-
             remarkText = FindViewById<TextView>(Resource.Id.remarkText);
             remarkText.Text = "remark will be displayed here...";
-
             cancel = FindViewById<Button>(Resource.Id.cancelBtn);
             cancel.Click += CancelClicked;
             edit = FindViewById<Button>(Resource.Id.editBtn);
@@ -139,21 +110,6 @@ namespace FundooWalkin.Activities
             StartActivity(typeof(SelectedActivity));
         }
 
-       /* private void rejectedClicked(object sender, EventArgs e)
-        {
-            rejected.SetTextColor(Color.Green);
-        }
-
-        private void Tbdclicked(object sender, EventArgs e)
-        {
-            TBD.SetTextColor(Color.Green);
-        }
-
-        private void selectedClicked(object sender, EventArgs e)
-        {
-            selected.SetTextColor(Color.Green);
-        }*/
-
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)
@@ -167,31 +123,10 @@ namespace FundooWalkin.Activities
                     return base.OnOptionsItemSelected(item);
             }
         }
+
         public void onRadioButtonClicked(View v)
         {
-         /*   RadioGroup rg = (RadioGroup)FindViewById(Resource.Id.rb_selected);
-            RadioButton rb_coldfusion = (RadioButton)FindViewById(R.id.rb_coldfusion);
-            RadioButton rb_flex = (RadioButton)FindViewById(R.id.rb_flex);
-
-            // Is the current Radio Button checked?
-            bool checked = ((RadioButton)v).isChecked();
-
-            switch (v.getId())
-            {
-                case R.id.rb_coldfusion:
-                    if (checked)
-                        rb_coldfusion.setTextColor(Color.RED);
-                    rb_flex.setTextColor(Color.GRAY);
-                    break;
-
-                case R.id.rb_flex:
-                    if (checked)
-                        rb_flex.setTextColor(Color.RED);
-                    rb_coldfusion.setTextColor(Color.GRAY);
-                    break;
-            }
-
-            }*/
+         
         }
     }
 }

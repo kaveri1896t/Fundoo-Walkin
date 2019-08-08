@@ -35,16 +35,13 @@ namespace FundooWalkin.Activities
 
             // Create your application here
             SetContentView(Resource.Layout.RejectedPage);
-          
-
+            
             //  SupportActionBar.NavigationMode{ SetContentView(Resource.Layout.LoginPage); };
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.Title = "Rejected";
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             ColorDrawable colorDrawable = new ColorDrawable(Color.ParseColor("#FF8C00"));
             SupportActionBar.SetBackgroundDrawable(colorDrawable);
-
-
             _recyclerView = FindViewById<RecyclerView>(Resource.Id.RejectedrecyclerView);
             candidates = new List<Candidate>
             {
@@ -78,7 +75,6 @@ namespace FundooWalkin.Activities
             this.StartActivity(intent);
 
         }
-
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
@@ -133,6 +129,5 @@ namespace FundooWalkin.Activities
                     return base.OnOptionsItemSelected(item);
             }
         }
-
     }
 }
