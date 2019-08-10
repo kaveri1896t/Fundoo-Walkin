@@ -24,25 +24,30 @@
                 android:layout_marginBottom="20dp"
                 android:id="@+id/FirstLinear"
                 android:layout_above="@+id/SecondLinear">
-                <ImageView
-                    android:src="@drawable/location_white"
-                    android:layout_marginLeft="20dp"
-                    android:layout_width="18dp"
-                    android:layout_height="15dp"
-                    android:layout_marginTop="3dp"
-                    android:id="@+id/imageView1"
-                    android:layout_alignParentStart="true"/>
 
-                <Spinner
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="38dp"
-                    android:layout_marginRight="10dp"
-                    android:gravity="start"
-                    android:id="@+id/spinnerLocation"
-                    android:background="#FF7B08"/>
+                     android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="20dp">
+                    <ImageView
+                        android:src="@drawable/location_white"
+                        android:layout_width="18dp"
+                        android:layout_height="15dp"
+                        android:layout_marginTop="3dp"
+                        android:id="@+id/imageView1"
+                        android:layout_alignParentLeft="true"/>
 
-                <Button
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                       
+                        android:layout_marginRight="10dp"
+                        android:gravity="start"
+                        android:id="@+id/spinnerLocation"
+                        android:background="#FF7B08"/>
+                </LinearLayout>
+              <Button
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:textColor="#FF7619"
@@ -52,10 +57,10 @@
                     android:id="@+id/BtnCalendar"
                     android:gravity="center"
                     android:layout_gravity="right"
+                    android:layout_alignParentRight="true"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="20dp"
-                    android:layout_alignParentRight="true"
-                    />
+                      />
             </RelativeLayout>
             <LinearLayout
                 android:layout_width="320dp"
