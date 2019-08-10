@@ -65,8 +65,8 @@ namespace FundooWalkin.Activities
             ////set the actions to the spinner
             this.spinner = FindViewById<Spinner>(Resource.Id.spinnerLocation);
             this.spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
-var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.LocationArray, Resource.Layout.Spinner_Item);
-adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.LocationArray, Resource.Layout.Spinner_Item);
+            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             this.spinner.Adapter = adapter;
 
             ////set the actions to the selected button
@@ -90,9 +90,9 @@ adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownIte
 
             ////set the actions to the search view
             this.searchView = FindViewById<SearchView>(Resource.Id.CandidateSearchView);
-this.searchView.SetIconifiedByDefault(true);
+            this.searchView.SetIconifiedByDefault(true);
             //this.searchView.SetQuery("Search Candidate", false);
-            
+
             ////set the status layout
             this.statusLayout = FindViewById<LinearLayout>(Resource.Id.EveryDayLayout);
 
@@ -153,7 +153,7 @@ this.searchView.SetIconifiedByDefault(true);
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             //return base.OnCreateOptionsMenu(menu);
-           //MenuInflater.Inflate(Resource.Menu.main, menu);
+            //MenuInflater.Inflate(Resource.Menu.main, menu);
             var item = menu.FindItem(Resource.Id.search_go_btn);
             var searchview1 = MenuItemCompat.GetActionView(item);
             this.searchView = searchview1.JavaCast<SearchView>();
