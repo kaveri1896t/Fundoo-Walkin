@@ -24,6 +24,7 @@
                 android:layout_marginBottom="20dp"
                 android:id="@+id/FirstLinear"
                 android:layout_above="@+id/SecondLinear">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -46,11 +47,11 @@
                         android:id="@+id/spinnerLocation"
                         android:background="#FF7B08"/>
                 </LinearLayout>
-
-                <Button
+              <Button
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:textColor="#FF7619"
+                    android:textSize="14dp"
                     android:background="@layout/rounded_blue"
                     android:drawableRight="@drawable/ic_event_24px"
                     android:id="@+id/BtnCalendar"
@@ -59,7 +60,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="20dp"
-                    />
+                      />
             </RelativeLayout>
             <LinearLayout
                 android:layout_width="320dp"
