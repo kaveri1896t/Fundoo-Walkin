@@ -9,18 +9,17 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:id="@+id/MainLayout">
-        <LinearLayout 
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="center"
             android:background="@layout/halfRounded">
 
-            <LinearLayout
+            <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="viewEnd"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
                 android:id="@+id/FirstLinear"
@@ -31,13 +30,14 @@
                     android:layout_width="18dp"
                     android:layout_height="15dp"
                     android:layout_marginTop="3dp"
-                    android:id="@+id/imageView1"/>
+                    android:id="@+id/imageView1"
+                    android:layout_alignParentStart="true"/>
 
                 <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="0dp"
-                    android:layout_marginRight="120dp"
+                    android:layout_marginLeft="38dp"
+                    android:layout_marginRight="10dp"
                     android:gravity="start"
                     android:id="@+id/spinnerLocation"
                     android:background="#FF7B08"/>
@@ -46,15 +46,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:textColor="#FF7619"
+                    android:textSize="14dp"
                     android:background="@layout/rounded_blue"
                     android:drawableRight="@drawable/ic_event_24px"
                     android:id="@+id/BtnCalendar"
                     android:gravity="center"
                     android:layout_gravity="right"
                     android:layout_marginLeft="0dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignParentRight="true"
                     />
-            </LinearLayout>
+            </RelativeLayout>
             <LinearLayout
                 android:layout_width="320dp"
                 android:layout_height="75dp"
