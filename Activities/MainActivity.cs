@@ -5,9 +5,9 @@ using Android.Runtime;
 using FundooWalkin.helper;
 using Android.Widget;
 using System;
-
+using FundooWalkin.helper;
 using System.Text.RegularExpressions;
-
+using FundooWalkin.Model;
 
 namespace FundooWalkin.Activities
 {
@@ -15,6 +15,7 @@ namespace FundooWalkin.Activities
 
     public class MainActivity : AppCompatActivity
     {
+        Helper helper = new Helper();
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -27,41 +28,33 @@ namespace FundooWalkin.Activities
             Button LoginBtn = FindViewById<Button>(Resource.Id.Loginbtn);
             LoginBtn.Click += async (object sender, EventArgs e) =>
             {
-                /* if (username.Text != null && password.Text != null)
-                 {
-                     if (Regex.IsMatch(username.Text, @"^[a-z][a-z0-9]+" + "@gmail.com"))
-                     {
+                if (username.Text != null && password.Text != null)
+                {
 
-                         User user = new User();
+                    Admin admin = new Admin();
 
-                         user.email = username.Text;
-                         user.password = password.Text;
-                         var httpResponse = await Helper.LoginUser(user);
+                    admin.loginId = username.Text;
 
-                         if (httpResponse.StatusCode == System.Net.HttpStatusCode.OK)
-                         {
-                             Toast.MakeText(this, "You are Logged in successfully", ToastLength.Long).Show();
-                             //
-                             // StartActivity(typeof(DashBoardActivity));
-                             username.Text = string.Empty;
-                             password.Text = string.Empty;
-                         }
-                         else
-                         {
-                             Toast.MakeText(this, "Log in failed", ToastLength.Long).Show();
-                         }
-                     }
-                     else
-                     {
-                         Toast.MakeText(this, "You May Have Entered Invalid Mail", ToastLength.Long).Show();
-                     }
-                 }
-                 else
-                 {
-                     Toast.MakeText(this, "All Fields Must Be Filled", ToastLength.Long).Show();
-                 }*/
+                    admin.password = password.Text;
+                    var httpResponse = await helper.LoginAdmin(admin);
 
-                StartActivity(typeof(DashboardActivity));
+                    if (httpResponse.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        Toast.MakeText(this, "You are Logged in successfully", ToastLength.Long).Show();
+                        StartActivity(typeof(DashboardActivity));
+                        username.Text = string.Empty;
+                        password.Text = string.Empty;
+                    }
+                    else
+                    {
+                        Toast.MakeText(this, "Log in failed", ToastLength.Long).Show();
+                        password.Text = string.Empty;
+                    }
+                }
+                else
+                {
+                    Toast.MakeText(this, "All Fields Must Be Filled", ToastLength.Long).Show();
+                }
             };
         }
 

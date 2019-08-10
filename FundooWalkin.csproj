@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Activities\RejectedActivity.cs" />
     <Compile Include="Activities\TBDActivity.cs" />
+    <Compile Include="Model\Admin.cs" />
     <Compile Include="Model\Candidate.cs" />
     <Compile Include="Activities\CandidateDetails.cs" />
     <Compile Include="Activities\CandidateRemarkActivity.cs" />

@@ -9,38 +9,43 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:id="@+id/MainLayout">
-        <LinearLayout 
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="center"
             android:background="@layout/halfRounded">
 
-            <LinearLayout
+            <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="viewEnd"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
                 android:id="@+id/FirstLinear"
                 android:layout_above="@+id/SecondLinear">
-                <ImageView
-                    android:src="@drawable/location_white"
-                    android:layout_marginLeft="20dp"
-                    android:layout_width="18dp"
-                    android:layout_height="15dp"
-                    android:layout_marginTop="3dp"
-                    android:id="@+id/imageView1"/>
-
-                <Spinner
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="0dp"
-                    android:layout_marginRight="120dp"
-                    android:gravity="start"
-                    android:id="@+id/spinnerLocation"
-                    android:background="#FF7B08"/>
+                     android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="20dp">
+                    <ImageView
+                        android:src="@drawable/location_white"
+                        android:layout_width="18dp"
+                        android:layout_height="15dp"
+                        android:layout_marginTop="3dp"
+                        android:id="@+id/imageView1"
+                        android:layout_alignParentLeft="true"/>
+
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                       
+                        android:layout_marginRight="10dp"
+                        android:gravity="start"
+                        android:id="@+id/spinnerLocation"
+                        android:background="#FF7B08"/>
+                </LinearLayout>
 
                 <Button
                     android:layout_width="wrap_content"
@@ -51,10 +56,11 @@
                     android:id="@+id/BtnCalendar"
                     android:gravity="center"
                     android:layout_gravity="right"
+                    android:layout_alignParentRight="true"
                     android:layout_marginLeft="0dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginRight="20dp"
                     />
-            </LinearLayout>
+            </RelativeLayout>
             <LinearLayout
                 android:layout_width="320dp"
                 android:layout_height="75dp"
